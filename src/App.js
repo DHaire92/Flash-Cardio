@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import './css/App.css';
+import './css/index.css';
+import './css/styles.css';
 
 function App() {
   return (
+    <div>
+      <img src="/paramedic_thinking.jpg" className="App-Image" alt="appImage" />
     <div className="App">
+      <h1 className="header">Daily Dose</h1>
+      <div>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img src="/EMS_Star.png" className="App-logo" alt="logo" />
+        <div className="login">
+          <LoginButton />
+        </div>
       </header>
+      </div>
     </div>
+    </div>
+  );
+}
+
+function LoginButton() {
+  return  (
+    <button className="button1">
+      Login
+    </button>
+  );
+}
+
+function CreateAccountButton() {
+  return (
+    <button className="button1">
+      Create Account
+    </button>
   );
 }
 
