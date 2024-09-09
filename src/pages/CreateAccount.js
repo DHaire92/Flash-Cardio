@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { BackToLoginButton } from "../components/Buttons";
+import { BackToLoginButton } from "../components/NavigationButtons";
 
 function SignUp() {
   const [email, setEmail] = useState("");

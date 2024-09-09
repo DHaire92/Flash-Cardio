@@ -28,7 +28,7 @@ export default function AddQuestion({ list, setList }) {
         </header>
         <header>
             <div>
-                <button className="button2" onClick={handleProblemAdd}>Add Question</button>  
+                <button className="button1" onClick={handleProblemAdd}>Add Question</button>  
             </div>
         </header>  
         </div>

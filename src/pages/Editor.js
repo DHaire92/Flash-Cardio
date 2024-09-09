@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BackToHomeButton } from "../components/Buttons";
+import { BackToHomeButton } from "../components/NavigationButtons";
 import QuestionManager from "../components/QuestionManager";
 
 export default function Editor() {

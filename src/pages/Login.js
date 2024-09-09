@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { CreateAccountButton } from "../components/Buttons";
+import { CreateAccountNavButton } from "../components/NavigationButtons";
 
 console.log("Rendering Login Component");
 
@@ -25,31 +25,31 @@ function Login() {
   };
 
   return (
-    <div className="App">
-      <h1 className="header">Login</h1>
-      <header className="App-header">
-        <img src="/EMS_Star.png" className="App-logo" alt="logo" />
-        <input 
-          type="email" 
-          placeholder="Email" 
-          value={email} 
-          onChange={(e) => setEmail(e.target.value)} 
-        />
-        <input 
-          type="password" 
-          placeholder="Password" 
-          value={password} 
-          onChange={(e) => setPassword(e.target.value)} 
-        />
-        <div>
-        <button className="button1" onClick={handleSignIn}>Sign In</button>
-        </div>
-        <div>
-          <CreateAccountButton />
-        </div>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-      </header>
-    </div>
+      <div className="App">
+        <h1 className="header">Login</h1>
+        <header className="App-header">
+          <img src="/EMS_Star.png" className="App-logo" alt="logo" />
+          <input 
+            type="email" 
+            placeholder="Email" 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
+          />
+          <input 
+            type="password" 
+            placeholder="Password" 
+            value={password} 
+            onChange={(e) => setPassword(e.target.value)} 
+          />
+          <div>
+          <button className="button1" onClick={handleSignIn}>Sign In</button>
+          </div>
+          <div>
+            <CreateAccountNavButton />
+          </div>
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+        </header>
+      </div>
   );
 }
 
