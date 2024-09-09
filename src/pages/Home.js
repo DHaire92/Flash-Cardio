@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-function Login() {
+function Home() {
   
     return (
       <div className="App">
         <h1 className="header">Home</h1>
         <header className="App-header">
-          <img src="/EMS_Star.png" className="App-logo" alt="logo" />
+          
         </header>
       </div>
     );
@@ -14,5 +14,5 @@ function Login() {
   
 
   
-  export default Login;
+  export default Home;
   

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { CreateAccountButton } from "../components/Buttons";
 
 console.log("Rendering Login Component");
 
@@ -49,15 +50,6 @@ function Login() {
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </header>
     </div>
-  );
-}
-
-function CreateAccountButton() {
-  const navigate = useNavigate();
-  return  (
-    <button className="button1" onClick={() => navigate('/signup')}>
-      Create Account
-    </button>
   );
 }
 
