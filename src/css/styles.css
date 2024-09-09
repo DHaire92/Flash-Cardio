@@ -16,14 +16,14 @@
     height: 100vh;
   }
   
-  .login {
+  .button-default {
     background-color: rgb(255, 255, 255); 
     font-size: 12px;
-    margin-left: 20px; 
-    margin-right: 400px;
+    margin-left: 3px; 
+    margin-right: 5px;
     margin-bottom: 250px;
     display: flex;
-    align-items: bottom;
+    align-items: flex-end;
     justify-content: center;
     color: white;
   }
@@ -31,6 +31,7 @@
   .button1 {
     background-color: rgb(48, 76, 103); /* Button background color */
     color: white; /* Button text color */
+    margin-left: 3px;
     padding: 10px 20px; /* Padding inside the button */
     border: none; /* Removes the default border */
     border-radius: 5px; /* Rounded corners */
@@ -39,9 +40,16 @@
     transition: background-color 0.3s ease; /* Smooth transition for hover effect */
   }
   
-  .login button:hover {
+  .button1:hover {
     background-color: #41a0ba; /* Darker color on hover */
+    color:black;
     
+  }
+
+  .error-message {
+    color:red;
+    font:bold;
+    margin-top:auto;
   }
   
   .logo_image {
@@ -50,3 +58,22 @@
     height: 300px;
   }
   
+  input[type="email"],
+  input[type="password"] {
+    width: 15%;
+    padding: 12px;
+    margin: 8px 0;
+    margin-right: 8px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-color: #66afe9;
+    box-shadow: 0 0 8px 0 rgba(102, 175, 233, 0.6);
+    outline: none;
+  }
