@@ -9,15 +9,18 @@ import { getAuth } from "firebase/auth";
 import SignIn from './Login.js'; 
 import SignUp from './CreateAccount.js'; 
 import Home from './Home.js'; 
+import Editor from './Editor.js'
+import { QuestionProvider } from '../components/QuestionContext.js'; 
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAL41MjROS4GX_w1-14K95aQ_U1tMKAGe4",
-  authDomain: "daily-dose-d5868.firebaseapp.com",
-  projectId: "daily-dose-d5868",
-  storageBucket: "daily-dose-d5868.appspot.com",
-  messagingSenderId: "90535038506",
-  appId: "1:90535038506:web:19b8fd89a5ed882d4f3d53"
+  apiKey: "AIzaSyDgiJz7_FghUlvYq8VFkMAPUpzRzy_ZszY",
+  authDomain: "flash-cardio.firebaseapp.com",
+  projectId: "flash-cardio",
+  storageBucket: "flash-cardio.appspot.com",
+  messagingSenderId: "473027755612",
+  appId: "1:473027755612:web:b799f3bf257954d1f77099",
+  measurementId: "G-LWWZ269T7K"
 };
 
 // Initialize Firebase
@@ -26,13 +29,15 @@ const auth = getAuth(app);
 
 function App() {
   return (
+    <QuestionProvider>
       <Routes>
         <Route path='*' element={<SignIn />} />
         <Route exact path="/" element={<SignIn />} />
         <Route exact path="/SignUp" element={<SignUp />} />
         <Route exact path="/Home" element={<Home />} />
+        <Route exact path="/Editor" element={<Editor />} />
       </Routes>
-
+    </QuestionProvider>
   );
 }
 

@@ -1,16 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { QuestionContext } from "../components/QuestionContext"; 
 
+const QuestionList = () => {
+  // Access questions from the QuestionContext
+  const { questions } = useContext(QuestionContext);
 
-export const QuestionList = ({ list = [] }) => {
+  console.log(questions);
+  // If there are no questions, show a message
+  if (!questions || questions.length === 0) {
+    return <p>No questions available.</p>;
+  }
 
   return (
-    <div>
-      {list.map((question, index) => (
-        <div key={index}>
-          <h3>{question.problem}</h3>
-        </div>
-      ))}
-    </div>
-  )
-}
-  
+    <header>
+    {questions.map((question, index) => (
+      <div key={index}>
+        <h3 className="question-text">{question.problem}</h3>
+      </div>
+    ))}
+    </header>
+  );
+};
+
+export default QuestionList;
+

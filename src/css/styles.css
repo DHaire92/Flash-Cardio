@@ -1,5 +1,5 @@
 .header {
-    background-color:rgb(48, 76, 103);
+    background-color:rgb(84, 177, 133);
     height: 120px; 
     padding: 5px 10px; 
     font-size: 16px;
@@ -15,6 +15,12 @@
     display: flex;
     height: 100vh;
   }
+
+  .question-text {
+    color: black;      /* Set the text color */
+    font-size: 18px;   /* Set the font size */
+    margin: 10px 0;    /* Add some margin for spacing */
+  }
   
   .button-default {
     background-color: rgb(255, 255, 255); 
@@ -29,7 +35,7 @@
   }
   
   .button1 {
-    background-color: rgb(48, 76, 103); /* Button background color */
+    background-color:rgb(84, 177, 133); /* Button background color */
     color: white; /* Button text color */
     margin-left: 3px;
     padding: 10px 20px; /* Padding inside the button */
@@ -59,7 +65,8 @@
   }
   
   input[type="email"],
-  input[type="password"] {
+  input[type="password"],
+  input[type="text"] {
     width: 15%;
     padding: 12px;
     margin: 8px 0;
@@ -72,7 +79,8 @@
   }
   
   input[type="email"]:focus,
-  input[type="password"]:focus {
+  input[type="password"]:focus,
+  input[type="text"]:focus {
     border-color: #66afe9;
     box-shadow: 0 0 8px 0 rgba(102, 175, 233, 0.6);
     outline: none;

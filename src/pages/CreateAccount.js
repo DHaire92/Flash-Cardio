@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { BackToLoginButton } from "../components/NavigationButtons";
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -25,8 +25,8 @@ function SignUp() {
   };
 
   return (
-    <div>
-      <h2>Sign Up</h2>
+    <div className="App">
+      <h1 className="header">Create Account</h1>
       <input 
         type="email" 
         placeholder="Email" 
@@ -39,9 +39,12 @@ function SignUp() {
         value={password} 
         onChange={(e) => setPassword(e.target.value)} 
       />
-      <button onClick={handleSignUp}>Sign Up</button>
+      <button className="button1" onClick={handleSignUp}>Sign Up</button>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {message && <p style={{ color: 'green' }}>{message}</p>}
+      <div>
+        <BackToLoginButton />
+      </div>
     </div>
   );
 }
