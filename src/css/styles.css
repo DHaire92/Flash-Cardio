@@ -1,5 +1,5 @@
 .header {
-    background-color:rgb(48, 76, 103);
+    background-color:rgb(84, 177, 133);
     height: 120px; 
     padding: 5px 10px; 
     font-size: 16px;
@@ -35,7 +35,7 @@
   }
   
   .button1 {
-    background-color: rgb(48, 76, 103); /* Button background color */
+    background-color:rgb(84, 177, 133); /* Button background color */
     color: white; /* Button text color */
     margin-left: 3px;
     padding: 10px 20px; /* Padding inside the button */

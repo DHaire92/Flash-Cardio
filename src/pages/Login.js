@@ -28,7 +28,7 @@ function Login() {
       <div className="App">
         <h1 className="header">Login</h1>
         <header className="App-header">
-          <img src="/EMS_Star.png" className="App-logo" alt="logo" />
+          <img src="/runner.png" className="App-logo" alt="logo" />
           <input 
             type="email" 
             placeholder="Email" 
