@@ -8,3 +8,9 @@
     display: flex;
     justify-content: center;
 }
+
+.buttons-header-container {
+    margin: 0 5%;
+    display: flex;
+    justify-content: space-around; 
+}

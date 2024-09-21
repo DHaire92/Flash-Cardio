@@ -1,8 +1,8 @@
-import './FolderWindowFolders.css'
-import FolderWindowFiles from '../folder-window-files/FolderWindowFiles';
+import './FolderWindowFolders.css';
+import FolderWindowFiles from '../folder-window-flashcards/FolderWindowFiles';
 import React, { useState } from 'react';
 
-function FolderWindowFolder({children}) {
+function FolderWindowFolder({ children, nestedFolders = [], files = [] }) {
     const [isVisible, setIsVisible] = useState(true);
 
     const toggleVisibility = () => {
@@ -13,13 +13,29 @@ function FolderWindowFolder({children}) {
         <div className="file-item">
             <div className="file-header" onClick={toggleVisibility}>
                 <span className="folder-name">{children}</span>
-                <button className="dropdown-btn">▼</button>
+                <button className="dropdown-btn">{isVisible ? '►' : '▼'}</button>
             </div>
 
-            {isVisible && (
+            {!isVisible && (
                 <div className="file-content">
-                    <FolderWindowFiles>Flashcard 2.1</FolderWindowFiles>
-                    <FolderWindowFiles>Flashcard 2.2</FolderWindowFiles>
+                    <div className="window-flashcard-items">
+                        {files.map((file, index) => (
+                            <FolderWindowFiles key={index}>
+                                {file}
+                            </FolderWindowFiles>
+                        ))}
+                    </div>
+                    <div className="window-folder-items">
+                        {nestedFolders.map((nestedFolder, index) => (
+                            <FolderWindowFolder
+                                key={index}
+                                nestedFolders={nestedFolder.nestedFolders}
+                                files={nestedFolder.files}
+                            >
+                                {nestedFolder.name}
+                            </FolderWindowFolder>
+                        ))}
+                    </div>
                 </div>
             )}
         </div>

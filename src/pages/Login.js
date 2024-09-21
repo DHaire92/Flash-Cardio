@@ -28,26 +28,27 @@ function Login() {
   return (
       <div className="App">
         <Header>Login</Header>
+
         <header className="App-header">
-          {/* <img src="/runner.png" className="App-logo" alt="logo" /> */}
-          <input 
-            className='basic-input'
-            type="email" 
-            placeholder="Email" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
-          />
-          <input 
-            className='basic-input'
-            type="password" 
-            placeholder="Password" 
-            value={password} 
-            onChange={(e) => setPassword(e.target.value)} 
-          />
-          <div>
-          <button className="main-button" onClick={handleSignIn}>Sign In</button>
+          <div className="login-input-header">
+            <input 
+              className='basic-input'
+              type="email" 
+              placeholder="Email" 
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
+            />
+            <input 
+              className='basic-input'
+              type="password" 
+              placeholder="Password" 
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
+            />
           </div>
+
           <div>
+            <button className="main-button" onClick={handleSignIn}>Sign In</button>
             <CreateAccountNavButton />
           </div>
           {error && <p style={{ color: 'red' }}>{error}</p>}

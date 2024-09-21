@@ -31,8 +31,8 @@
   input[type="text"].basic-input {
     width: 15%;
     padding: 12px;
-    margin: 8px 0;
-    margin-right: 8px;
+    margin: 8px;
+    margin-right: 10px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;

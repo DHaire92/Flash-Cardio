@@ -30,24 +30,27 @@ function SignUp() {
   return (
     <div className="App">
       <Header>Create Account</Header>
-      <input 
-        className='basic-input'
-        type="email" 
-        placeholder="Email" 
-        value={email} 
-        onChange={(e) => setEmail(e.target.value)} 
-      />
-      <input 
-        className='basic-input'
-        type="password" 
-        placeholder="Password" 
-        value={password} 
-        onChange={(e) => setPassword(e.target.value)} 
-      />
-      <button className="main-button" onClick={handleSignUp}>Sign Up</button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {message && <p style={{ color: 'green' }}>{message}</p>}
+      <div className="create-account-input-header">
+        <input 
+          className='basic-input'
+          type="email" 
+          placeholder="Email" 
+          value={email} 
+          onChange={(e) => setEmail(e.target.value)} 
+        />
+        <input 
+          className='basic-input'
+          type="password" 
+          placeholder="Password" 
+          value={password} 
+          onChange={(e) => setPassword(e.target.value)} 
+        />
+      </div>
+
       <div>
+        <button className="main-button" onClick={handleSignUp}>Sign Up</button>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+        {message && <p style={{ color: 'green' }}>{message}</p>}
         <BackToLoginButton />
       </div>
     </div>
