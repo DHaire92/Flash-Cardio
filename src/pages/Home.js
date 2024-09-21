@@ -1,12 +1,14 @@
 import React from "react";
 import QuestionList from "../models/QuestionList";
-import { EditorNavButton, BackToLoginButton } from "../components/NavigationButtons";
+import { EditorNavButton, BackToLoginButton } from "../components/button/NavigationButtons";
+import Header from "../components/header/Header"
+import Flashcard from "../components/flashcard/flashcard-edit-mode/Flashcard";
 
 function Home() {
   
     return (
       <div className="App">
-        <h1 className="header">Home</h1>
+        <Header>Home</Header>
           <EditorNavButton />
           <div>
             <BackToLoginButton />

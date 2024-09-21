@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { CreateAccountNavButton } from "../components/NavigationButtons";
+import { CreateAccountNavButton } from "../components/button/NavigationButtons";
+import Header from "../components/header/Header"
 
 console.log("Rendering Login Component");
 
@@ -26,23 +27,25 @@ function Login() {
 
   return (
       <div className="App">
-        <h1 className="header">Login</h1>
+        <Header>Login</Header>
         <header className="App-header">
-          <img src="/runner.png" className="App-logo" alt="logo" />
+          {/* <img src="/runner.png" className="App-logo" alt="logo" /> */}
           <input 
+            className='basic-input'
             type="email" 
             placeholder="Email" 
             value={email} 
             onChange={(e) => setEmail(e.target.value)} 
           />
           <input 
+            className='basic-input'
             type="password" 
             placeholder="Password" 
             value={password} 
             onChange={(e) => setPassword(e.target.value)} 
           />
           <div>
-          <button className="button1" onClick={handleSignIn}>Sign In</button>
+          <button className="main-button" onClick={handleSignIn}>Sign In</button>
           </div>
           <div>
             <CreateAccountNavButton />

@@ -1,8 +1,4 @@
-import '../css/App.css';
-import '../css/index.css';
-import '../css/styles.css';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
@@ -10,7 +6,9 @@ import SignIn from './Login.js';
 import SignUp from './CreateAccount.js'; 
 import Home from './Home.js'; 
 import Editor from './Editor.js'
-import { QuestionProvider } from '../components/QuestionContext.js'; 
+import '../styles/styles.css'
+
+import { QuestionProvider } from '../components/questions/QuestionContext.js'; 
 
 // Firebase configuration
 const firebaseConfig = {

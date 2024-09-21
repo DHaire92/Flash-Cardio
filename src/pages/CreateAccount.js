@@ -1,6 +1,9 @@
-import React, { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { BackToLoginButton } from "../components/NavigationButtons";
+import React, { useState } from 'react';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { BackToLoginButton } from '../components/button/NavigationButtons';
+import Header from "../components/header/Header"
+import Button from '../components/button/Button';
+import '../components/button/button.css'
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -26,20 +29,22 @@ function SignUp() {
 
   return (
     <div className="App">
-      <h1 className="header">Create Account</h1>
+      <Header>Create Account</Header>
       <input 
+        className='basic-input'
         type="email" 
         placeholder="Email" 
         value={email} 
         onChange={(e) => setEmail(e.target.value)} 
       />
       <input 
+        className='basic-input'
         type="password" 
         placeholder="Password" 
         value={password} 
         onChange={(e) => setPassword(e.target.value)} 
       />
-      <button className="button1" onClick={handleSignUp}>Sign Up</button>
+      <button className="main-button" onClick={handleSignUp}>Sign Up</button>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {message && <p style={{ color: 'green' }}>{message}</p>}
       <div>
