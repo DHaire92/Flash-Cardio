@@ -1,9 +1,10 @@
-  body {
-    background-color: #faf0dc;
-  };
-  
   .main_container {
     display: flex;
+    height: 100vh;
+  }
+
+  .App {
+    background-color: #FAF0DC;
     height: 100vh;
   }
 

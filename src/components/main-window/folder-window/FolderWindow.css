@@ -1,0 +1,24 @@
+.folder-window {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* border: 2px solid black */
+}
+
+.folder-window-header {
+    height: 15px;
+    background-color: #281E1E;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.folder-window-body {
+    background-color: white;
+    padding: 10px;
+
+    border: 3px solid #281E1E;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}

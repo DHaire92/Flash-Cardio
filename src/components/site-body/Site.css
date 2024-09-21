@@ -1,0 +1,10 @@
+.site {
+    background-color: #faf0dc;
+    width: 100vw;  /* 100% of the viewport width */
+    height: 100vh; /* 100% of the viewport height */
+}
+
+.folder-window-container {
+    display: flex;
+    justify-content: center;
+}

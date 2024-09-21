@@ -1,0 +1,12 @@
+.file-item {
+    padding-left: 10px;
+}
+
+.folder-name {
+    padding-right: 3px;
+    font-weight: bold;
+}
+
+.file-header {
+    cursor: pointer;
+}
