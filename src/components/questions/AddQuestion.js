@@ -18,20 +18,19 @@ export default function AddQuestion({ list, setList }) {
 
     return (
         <div>
-          <h2>Question editing functionality goes here</h2>
-        <header>
-          <input 
-              className='basic-input'
-              type="text"
-              value={problem}
-              onChange={handleProblemChange}
-              placeholder="Type the new Question here" />
-        </header>
-        <header>
-            <div>
-                <button className="main-button" onClick={handleProblemAdd}>Add Question</button>  
-            </div>
-        </header>  
+          <header>
+            <input 
+                className='basic-input'
+                type="text"
+                value={problem}
+                onChange={handleProblemChange}
+                placeholder="Type the new Question here" />
+          </header>
+          <header>
+              <div>
+                  <button className="main-button" onClick={handleProblemAdd}>Add Question</button>  
+              </div>
+          </header>  
         </div>
     );
   }

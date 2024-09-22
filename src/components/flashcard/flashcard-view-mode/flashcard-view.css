@@ -1,60 +1,59 @@
 .view-card-body {
     display: flex;
-    height: 150px;
     justify-content: space-around;
-    margin: 0px 50px 10px 50px;
-    padding: 10px 15px;
 
+    height: 150px;
+    padding: 10px 15px;
     border-width: 0px 5px 5px 5px;
     border-style: solid;
     border-color: #281e1e;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    margin: 0px 50px 10px 50px;
 
     background-color: #503c3c;
 }
 
 .view-card-toolbar {
     display: flex;
-    height: 20px;
     justify-content: left;
-    margin: 0 50px;
+
+    height: 20px;
     padding: 10px 15px;
-
-    color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
-
     border-width: 5px 5px 0px 5px;
     border-style: solid;
     border-color: #281e1e;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    
+    margin: 0 50px;
+
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+
     background-color: #503c3c;
 }
 
 .view-card-content {
-    margin: 0px 0px 0px 15px;
     display: flex;
-    width: 100%;
     align-items: left;
-    /* border: 1px solid white; */
+
+    width: 100%;
+    margin: 0px 0px 0px 15px;
 }
 
 .view-separator {
-    background-color: #281e1e;
     width: 2px;
+
+    background-color: #281e1e;
 }
 
 .view-text-container {
-    /* border: 1px solid white; */
+    margin: 0px 50% 0px 0px;
+
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin: 0px 50% 0px 0px;
     font-size: large;
+
     background-color: transparent;
 }
-
-
-

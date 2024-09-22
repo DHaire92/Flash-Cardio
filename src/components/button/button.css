@@ -1,12 +1,12 @@
 .main-button {
+    margin: 1%;
     border: 0;
     border-radius: 15px;
     padding: 7px 13px;
-    margin: 1%;
 
-    color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
+    color: white;
 
     background-color: #281e1e;
 

@@ -1,5 +1,3 @@
-
-
 class Question {
 
     constructor(problem) {
