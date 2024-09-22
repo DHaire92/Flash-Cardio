@@ -12,8 +12,8 @@ function FolderWindowFolder({ children, nestedFolders = [], files = [] }) {
     return (
         <div className="file-item">
             <div className="file-header" onClick={toggleVisibility}>
-                <span className="folder-name">{children}</span>
                 <button className="dropdown-btn">{isVisible ? '►' : '▼'}</button>
+                <span className="folder-name">{children}</span>
             </div>
 
             {!isVisible && (

@@ -1,0 +1,58 @@
+.page-header {
+  padding: 15px 0px 0px 50px;
+
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #281e1e;
+  font-size: 50px;
+}
+
+.main_container {
+    display: flex;
+    height: 100vh;
+  }
+
+  .App {
+    background-color: #FAF0DC;
+    height: 100vh;
+  }
+
+  .question-text {
+    color: black;      /* Set the text color */
+    font-size: 18px;   /* Set the font size */
+    margin: 10px 0;    /* Add some margin for spacing */
+  }
+
+  .error-message {
+    color:red;
+    font:bold;
+    margin-top:auto;
+  }
+  
+  .logo_image {
+    margin: 20px;
+    width: 300px;
+    height: 300px;
+  }
+  
+  input[type="email"].basic-input,
+  input[type="password"].basic-input,
+  input[type="text"].basic-input {
+    width: 15%;
+    padding: 12px;
+    margin: 8px;
+    margin-right: 10px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  input[type="email"].basic-input:focus,
+  input[type="password"].basic-input:focus,
+  input[type="text"].basic-input:focus {
+    border-color: #66afe9;
+    box-shadow: 0 0 8px 0 rgba(102, 175, 233, 0.6);
+    outline: none;
+  }

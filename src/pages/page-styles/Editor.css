@@ -1,0 +1,41 @@
+.folder-mode-info-header-container {
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid black; */
+}
+
+.page-header {
+    margin-bottom: 10px;
+}
+
+.folder-utils-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px 0 40px;
+    /* border: 2px solid black; */
+}
+
+.title-input {
+    background-color: transparent;
+    border: transparent;
+    border-bottom: 2px solid #281e1e;
+
+    font-size: large;
+
+    margin: 13px;
+    padding: 7px 7px 0px 0px;
+}
+
+.title-input:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.current-directory {
+    margin-left: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.current-directory-link:hover {
+    cursor: pointer;
+}
