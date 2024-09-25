@@ -1,0 +1,35 @@
+.file-item {
+    padding-left: 10px;
+}
+
+.folder-name {
+    padding-left: 3px;
+    font-weight: bold;
+}
+
+.file-header {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.dropdown-btn {
+    border: transparent;
+    background-color: transparent;
+}
+
+.file-header-right {
+    margin-right: 5px;
+
+    font-weight: bolder;
+}
+
+.site-body-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-header {
+    text-align: center;
+}
+

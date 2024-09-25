@@ -1,0 +1,59 @@
+.view-card-body {
+    display: flex;
+    justify-content: space-around;
+
+    height: 150px;
+    padding: 10px 15px;
+    border-width: 0px 5px 5px 5px;
+    border-style: solid;
+    border-color: #281e1e;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin: 0px 50px 10px 50px;
+
+    background-color: #503c3c;
+}
+
+.view-card-toolbar {
+    display: flex;
+    justify-content: left;
+
+    height: 20px;
+    padding: 10px 15px;
+    border-width: 5px 5px 0px 5px;
+    border-style: solid;
+    border-color: #281e1e;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin: 0 50px;
+
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+
+    background-color: #503c3c;
+}
+
+.view-card-content {
+    display: flex;
+    align-items: left;
+
+    width: 100%;
+    margin: 0px 0px 0px 15px;
+}
+
+.view-separator {
+    width: 2px;
+
+    background-color: #281e1e;
+}
+
+.view-text-container {
+    margin: 0px 50% 0px 0px;
+
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+
+    background-color: transparent;
+}
