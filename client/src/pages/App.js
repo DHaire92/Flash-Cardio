@@ -12,13 +12,13 @@ import { QuestionProvider } from '../components/questions/QuestionContext.js';
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDgiJz7_FghUlvYq8VFkMAPUpzRzy_ZszY",
-  authDomain: "flash-cardio.firebaseapp.com",
-  projectId: "flash-cardio",
-  storageBucket: "flash-cardio.appspot.com",
-  messagingSenderId: "473027755612",
-  appId: "1:473027755612:web:b799f3bf257954d1f77099",
-  measurementId: "G-LWWZ269T7K"
+  apiKey: "AIzaSyB8m0aYQghcbkVakuENE-KFob7t_dMRGIk",
+  authDomain: "flashcardio-594f2.firebaseapp.com",
+  projectId: "flashcardio-594f2",
+  storageBucket: "flashcardio-594f2.appspot.com",
+  messagingSenderId: "985978106813",
+  appId: "1:985978106813:web:af85194d9ca91f96ae58d4",
+  measurementId: "G-27LN8RVNDB"
 };
 
 // Initialize Firebase
