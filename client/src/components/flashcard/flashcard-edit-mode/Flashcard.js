@@ -1,6 +1,10 @@
 import './flashcard.css';
+import { useState } from 'react';
 
-const Flashcard = ({ cardNumber, onDelete }) => {
+const Flashcard = ({ cardNumber, onDelete, onUpdateFront, onUpdateBack, cardContents }) => {
+  const [front, setFront] = useState(cardContents.front);
+  const [back, setBack] = useState(cardContents.back);
+
   return (
     <div className="card-container">
       <div className="card-toolbar">
@@ -15,13 +19,22 @@ const Flashcard = ({ cardNumber, onDelete }) => {
               type="text"
               className="card-input"
               placeholder="Add a term or question..."
+              value={front}
+              onChange={(e) => {
+                setFront(e.target.value);
+                onUpdateFront(e.target.value);
+              }}
             />
-          </div>
-          <div className="text-container">
+
             <input
               type="text"
-              placeholder="Add a definition or answer..."
               className="card-input"
+              placeholder="Add a definition or answer..."
+              value={back}
+              onChange={(e) => {
+                setBack(e.target.value);
+                onUpdateBack(e.target.value);
+              }}
             />
           </div>
         </div>

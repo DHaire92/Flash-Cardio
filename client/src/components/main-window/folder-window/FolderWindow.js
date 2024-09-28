@@ -28,8 +28,7 @@ function FolderWindow() {
                 {folderStructure.map((folder) => (
                     <FolderWindowFolder
                         key={folder.id}
-                        nestedFolders={folder.nestedFolders}
-                        files={folder.files}
+                        folderData={folder}
                     >
                         {folder.name}
                     </FolderWindowFolder>

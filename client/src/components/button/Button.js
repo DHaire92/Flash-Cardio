@@ -1,13 +1,14 @@
 import { useNavigate } from 'react-router-dom';
-import useTestHook from '../../hooks/test_hook';
 
-function Button({ text, navigateTo }) {
+function Button({ text, navigateTo, onClick }) {
     const navigate = useNavigate();
-    const { testServer } = useTestHook();
 
     const handleClick = async () => {
-        await testServer();
-        navigate(navigateTo);
+        if (onClick) {
+            onClick(); // Call the custom onClick if provided
+          } else if (navigateTo) {
+            navigate(navigateTo); // Default to using navigateTo if no onClick
+          }
     };
 
     return (
