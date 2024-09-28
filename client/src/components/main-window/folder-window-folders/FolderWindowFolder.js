@@ -17,6 +17,7 @@ function FolderWindowFolder({ children, nestedFolders = [], files = [] }) {
                     <span className="folder-name">{children}</span>
                 </div>
                 <div className="file-header-right">
+                    <span className='folder-edit-util'>...</span>
                     <span>+</span>
                 </div>
             </div>

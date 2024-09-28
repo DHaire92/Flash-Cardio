@@ -21,7 +21,7 @@ const AddTestFolder = () => {
 
   return (
     <div>
-      <button onClick={addTestFolder}> Add Test Folder </button>
+      <button className="main-button" onClick={addTestFolder}> Add Test Folder </button>
     </div>
   );
 };

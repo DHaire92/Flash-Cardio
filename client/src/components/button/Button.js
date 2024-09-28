@@ -1,4 +1,3 @@
-import './button.css';
 import { useNavigate } from 'react-router-dom';
 import useTestHook from '../../hooks/test_hook';
 

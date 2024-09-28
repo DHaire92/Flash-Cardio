@@ -19,8 +19,6 @@
 }
 
 .file-header-right {
-    margin-right: 5px;
-
     font-weight: bolder;
 }
 
@@ -31,5 +29,9 @@
 
 .page-header {
     text-align: center;
+}
+
+.folder-edit-util {
+    margin-right: 5px;
 }
 

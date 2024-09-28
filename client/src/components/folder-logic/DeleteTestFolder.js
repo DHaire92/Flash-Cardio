@@ -31,7 +31,7 @@ function DeleteFolder() {
   return (
     <div className="delete-folder">
         {folderStructure.map((folder) => (
-            <button onClick={() => deleteFolder(folder.id)}>
+            <button className="main-button" onClick={() => deleteFolder(folder.id)}>
               Delete {folder.name}
             </button>
         ))}
