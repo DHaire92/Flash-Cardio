@@ -1,11 +1,11 @@
-import './AddCard.css'
+import './AddCard.css';
 
-const AddCard = () => {
-    return (
-        <div className='add-body'>
-            <p className='add-text-container'>Add Card +</p>
-        </div>
-    );
-}
+const AddCard = ({ onClick }) => {
+  return (
+    <div className="add-body" onClick={onClick}>
+      <p className="add-text-container">Add Card +</p>
+    </div>
+  );
+};
 
 export default AddCard;

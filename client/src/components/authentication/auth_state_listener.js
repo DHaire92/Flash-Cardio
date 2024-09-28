@@ -32,12 +32,10 @@ function AuthStateListener() {
         <div>
           <h2>Welcome, {user.email}</h2>
           <p>User ID: {user.uid}</p>
-          {/* Add more UI elements here for signed-in users */}
         </div>
       ) : (
         <div>
           <h2>You are not signed in.</h2>
-          {/* Add more UI elements here for guests */}
         </div>
       )}
     </div>

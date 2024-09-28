@@ -13,14 +13,20 @@
     cursor: pointer;
 }
 
+.file-content {
+    margin-left: 10px;
+}
+
+.window-flashcard-items {
+    text-decoration: underline;
+}
+
 .dropdown-btn {
     border: transparent;
     background-color: transparent;
 }
 
 .file-header-right {
-    margin-right: 5px;
-
     font-weight: bolder;
 }
 
@@ -31,5 +37,18 @@
 
 .page-header {
     text-align: center;
+}
+
+.folder-edit-util {
+    margin-right: 5px;
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+}
+
+.folder-edit-util:hover {
+    border-radius: 5px;
+    color: white;
+    background-color: #281e1e;
 }
 

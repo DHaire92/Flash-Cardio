@@ -28,7 +28,6 @@ function Login() {
   return (
       <div className="App">
         <Header>Login</Header>
-        <div className="testing-bruh">test</div>
         <header className="App-header">
           <div className="login-input-header">
             <input 

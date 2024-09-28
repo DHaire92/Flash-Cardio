@@ -36,16 +36,17 @@
 
 .card-content {
     display: flex;
-    justify-content: space-around;
-
     width: 100%;
 }
 
 .text-container {
     display: flex;
+    justify-content:start;
+    gap: 15%;
+    
     align-items: end;
 
-    width: 45%;
+    width: 100%;
     padding: 20px;
     margin: 10px;
 
@@ -54,9 +55,9 @@
 
 .card-input {
     height: 25%;
-    width: 80%;
+    width: 35%;
     border-width: 0px;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #281e1e;
 
     color: white;
     font-size: large;
@@ -67,4 +68,17 @@
 .card-input:focus {
     box-shadow: none;
     outline: none;
+}
+
+.delete-card{
+    background-color: transparent;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    border: none;
+}
+
+.delete-card:hover {
+    background-color: #281e1e;
+    border-radius: 5px;
 }

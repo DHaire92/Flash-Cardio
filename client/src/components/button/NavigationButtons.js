@@ -9,10 +9,15 @@ export function CreateAccountNavButton() {
     );
   }
 
-  export function EditorNavButton() {
+  export function EditorNavButton({ folderEditData }) {
     const navigate = useNavigate();
-    return  (
-      <Button text='Editor' navigateTo='/Editor' />
+  
+    const handleNavigation = () => {
+      navigate('/Editor', { state: { folderEditData } });
+    };
+  
+    return (
+      <Button text="Editor" onClick={handleNavigation} />
     );
   }
 

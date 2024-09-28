@@ -1,9 +1,12 @@
 import './FolderWindowFolders.css';
 import FolderWindowFiles from '../folder-window-flashcards/FolderWindowFiles';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { EditorNavButton } from '../../button/NavigationButtons';
 
-function FolderWindowFolder({ children, nestedFolders = [], files = [] }) {
+function FolderWindowFolder({children, folderData }) {
     const [isVisible, setIsVisible] = useState(true);
+    const navigate = useNavigate();
 
     const toggleVisibility = () => {
         setIsVisible(!isVisible);
@@ -14,9 +17,14 @@ function FolderWindowFolder({ children, nestedFolders = [], files = [] }) {
             <div className="file-header" onClick={toggleVisibility}>
                 <div className="file-header-left">
                     <button className="dropdown-btn">{isVisible ? '►' : '▼'}</button>
-                    <span className="folder-name">{children}</span>
+                    <span className="folder-name">{folderData.name}</span>
                 </div>
                 <div className="file-header-right">
+                    <button onClick={(e) => {
+                        e.stopPropagation();  
+                        navigate('/Editor', { state: { folderEditData: folderData } });
+                    }} 
+                        className='folder-edit-util'>...</button>
                     <span>+</span>
                 </div>
             </div>
@@ -24,14 +32,14 @@ function FolderWindowFolder({ children, nestedFolders = [], files = [] }) {
             {!isVisible && (
                 <div className="file-content">
                     <div className="window-flashcard-items">
-                        {files.map((file, index) => (
+                        {folderData.flashcards.map((file, index) => (
                             <FolderWindowFiles key={index}>
-                                {file}
+                                {file.front}
                             </FolderWindowFiles>
                         ))}
                     </div>
                     <div className="window-folder-items">
-                        {nestedFolders.map((nestedFolder, index) => (
+                        {folderData.nestedFolders.map((nestedFolder, index) => (
                             <FolderWindowFolder
                                 key={index}
                                 nestedFolders={nestedFolder.nestedFolders}

@@ -3,7 +3,6 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { BackToLoginButton } from '../components/button/NavigationButtons';
 import Header from "../components/header/Header"
 import Button from '../components/button/Button';
-import '../components/button/button.css'
 
 function SignUp() {
   const [email, setEmail] = useState("");

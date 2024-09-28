@@ -1,42 +1,34 @@
+import React, { useEffect, useState } from 'react';
 import './FolderWindow.css';
 import FolderWindowFolder from '../folder-window-folders/FolderWindowFolder';
+import { collection, onSnapshot } from "firebase/firestore";
+import { db } from '../../../pages/App';
 
 function FolderWindow() {
-    const folderStructure = [
-        {
-            name: 'Folder 1',
-            files: ['Flashcard 1.1', 'Flashcard 1.2'],
-            nestedFolders: [
-                {
-                    name: 'Folder 1.1',
-                    files: ['Flashcard 1.1.1'],
-                    nestedFolders: [
-                        { name: 'Folder 1.1.1', files: ['Flashcard 1.1.1.1'], nestedFolders: [] },
-                        { name: 'Folder 1.1.2', files: ['Flashcard 1.1.2.1'], nestedFolders: [] },
-                    ],
-                },
-                { name: 'Folder 1.2', files: ['Flashcard 1.2.1'], nestedFolders: [] },
-            ],
-        },
-        {
-            name: 'Folder 2',
-            files: ['Flashcard 2.1', 'Flashcard 2.2'],
-            nestedFolders: [
-                { name: 'Folder 2.1', files: ['Flashcard 2.1.1'], nestedFolders: [] },
-                { name: 'Folder 2.2', files: ['Flashcard 2.2.1'], nestedFolders: [] },
-            ],
-        },
-    ];
+    const [folderStructure, setFolderStructure] = useState([]);
+
+    useEffect(() => {
+        const folderCollectionRef = collection(db, 'flashcard-folders');
+
+        const unsubscribe = onSnapshot(folderCollectionRef, (snapshot) => {
+            const folders = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+            setFolderStructure(folders);
+        });
+
+        return () => unsubscribe();
+    }, []);
 
     return (
         <div className="folder-window">
             <div className="folder-window-header"></div>
             <div className="folder-window-body">
-                {folderStructure.map((folder, index) => (
+                {folderStructure.map((folder) => (
                     <FolderWindowFolder
-                        key={index}
-                        nestedFolders={folder.nestedFolders}
-                        files={folder.files}
+                        key={folder.id}
+                        folderData={folder}
                     >
                         {folder.name}
                     </FolderWindowFolder>
