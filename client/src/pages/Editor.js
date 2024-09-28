@@ -37,8 +37,8 @@ export default function Editor() {
     folderData.flashcards.push(newFlashcard);
   };
 
-  const handleDeleteCard = (index) => {
-    const updatedFlashcards = flashcards.filter((_, i) => i !== index);
+  const handleDeleteCard = (id) => {
+    const updatedFlashcards = flashcards.filter((card) => card.id !== id);
     const reorderedFlashcards = updatedFlashcards.map((card, index) => ({
       ...card,
       cardNumber: index + 1,
@@ -66,7 +66,7 @@ export default function Editor() {
 
   const updateTitle = (newTitle) => {
     setTitle(newTitle);
-    folderData.name = newTitle
+    folderData.name = newTitle;
   };
 
   return (
@@ -110,22 +110,20 @@ export default function Editor() {
               navigate('/Home');
               }}>Delete</button>
 
-
             <BackToHomeButton />
           </div>
         </div>
       </div>
 
       <div className="edit-flashcard-container">
-        {flashcards.map((flashcard, index) => (
+        {flashcards.map((flashcard) => (
           <Flashcard
-            key={index}
-            cardNumber={index + 1}
+            key={flashcard.id} // Use the unique id as the key
+            cardNumber={flashcard.cardNumber}
             cardContents={flashcard}
-            fData={folderData}
-            onDelete={() => handleDeleteCard(flashcard.id)}
-            onUpdateFront={(newFront) => updateFlashcardFront(index, newFront)}
-            onUpdateBack={(newBack) => updateFlashcardBack(index, newBack)}
+            onDelete={() => handleDeleteCard(flashcard.id)} // Pass the card id
+            onUpdateFront={(newFront) => updateFlashcardFront(flashcards.findIndex(card => card.id === flashcard.id), newFront)}
+            onUpdateBack={(newBack) => updateFlashcardBack(flashcards.findIndex(card => card.id === flashcard.id), newBack)}
           />
         ))}
         <AddCard onClick={handleAddCard} />

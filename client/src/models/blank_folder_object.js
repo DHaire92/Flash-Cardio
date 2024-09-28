@@ -2,7 +2,7 @@ export const blankFolder = {
     name: "",
     flashcards: [
       {
-        id: Date.now() + "-f1",
+        id: Date.now(),
         front: "",
         back: "",
         cardNumber: 1
