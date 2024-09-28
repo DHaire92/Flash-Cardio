@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { CreateAccountNavButton } from "../components/button/NavigationButtons";
 import Header from "../components/header/Header"
+import Button from "../components/button/Button";
 
 console.log("Rendering Login Component");
 
@@ -52,6 +53,9 @@ function Login() {
           </div>
           {error && <p style={{ color: 'red' }}>{error}</p>}
         </header>
+        
+        <Button text = 'Test API'></Button>
+
       </div>
   );
 }

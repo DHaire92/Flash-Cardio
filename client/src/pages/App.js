@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import SignIn from './Login.js'; 
 import SignUp from './CreateAccount.js'; 
@@ -23,6 +24,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 const auth = getAuth(app);
 
 function App() {
@@ -39,5 +41,5 @@ function App() {
   );
 }
 
-
+export { db };
 export default App;

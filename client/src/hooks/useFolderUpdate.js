@@ -1,4 +1,3 @@
-// src/hooks/useFolderUpdate.js
 import { useState } from 'react';
 
 const useFolderUpdate = () => {
@@ -20,7 +19,7 @@ const useFolderUpdate = () => {
 
       const result = await response.json();
       if (response.ok) {
-        console.log(result.message); // Successfully updated
+        console.log(result.message);
       } else {
         console.error(result.error);
         setError(result.error);
