@@ -5,7 +5,7 @@ function Button({ text, navigateTo, onClick }) {
 
     const handleClick = async () => {
         if (onClick) {
-            onClick(); // Call the custom onClick if provided
+            onClick();
           } else if (navigateTo) {
             navigate(navigateTo); // Default to using navigateTo if no onClick
           }

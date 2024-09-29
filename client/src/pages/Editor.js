@@ -95,11 +95,7 @@ export default function Editor() {
               }}
             />
           </div>
-          <div className="folder-mode-button-container">
-            <button className="main-button" onClick={(e) => {
-              e.stopPropagation();
-              addFolder(folderData)}}>Create New from Current</button>
-              
+          <div className="folder-mode-button-container">              
               <button className="main-button" onClick={(e) => {
               e.stopPropagation();
               updateFolder(folderData.id, folderData)}}>Save</button>
@@ -121,7 +117,7 @@ export default function Editor() {
             key={flashcard.id} // Use the unique id as the key
             cardNumber={flashcard.cardNumber}
             cardContents={flashcard}
-            onDelete={() => handleDeleteCard(flashcard.id)} // Pass the card id
+            onDelete={() => handleDeleteCard(flashcard.id)}
             onUpdateFront={(newFront) => updateFlashcardFront(flashcards.findIndex(card => card.id === flashcard.id), newFront)}
             onUpdateBack={(newBack) => updateFlashcardBack(flashcards.findIndex(card => card.id === flashcard.id), newBack)}
           />
