@@ -1,0 +1,29 @@
+.folder-edit-container {
+    width: 28.48vw;
+    height: 275px;
+
+    padding: 15px;
+    border-radius: 15px;
+
+    /* margin-right: 25px; */
+    margin-bottom: 25px;
+    
+    background-color: #281e1e;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.folder-edit-container:hover {
+    background-color: #503c3c;
+}
+
+.folder-edit-header {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.folder-edit-card-amount {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

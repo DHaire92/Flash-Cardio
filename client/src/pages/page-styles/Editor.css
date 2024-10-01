@@ -46,3 +46,12 @@
 .current-directory-link:hover {
     cursor: pointer;
 }
+
+.folder-edit-icon-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.3333vw;
+    justify-content: start;
+    margin: 0px 50px 10px 50px;
+}
+
