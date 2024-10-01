@@ -46,3 +46,7 @@
 .current-directory-link:hover {
     cursor: pointer;
 }
+
+.folder-edit-icon-container {
+    display: flex;
+}

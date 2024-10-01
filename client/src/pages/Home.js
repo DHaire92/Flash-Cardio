@@ -19,6 +19,7 @@ function Home() {
                   <div className="page-header">Your Library</div>
                   <div className="buttons-header-container">
                     <button onClick={ async (e) => {
+                        // add firestore uuid to folder object, and send object to editor
                         e.stopPropagation();
                         let id = await addFolder(blankFolder);
                         blankFolder.id = id;

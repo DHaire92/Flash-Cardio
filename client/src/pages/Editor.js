@@ -7,6 +7,7 @@ import Header from "../components/header/Header";
 import AddCard from "../components/flashcard/add-card/AddCard";
 import Flashcard from "../components/flashcard/flashcard-edit-mode/Flashcard";
 import { addFolder, updateFolder, deleteFolder } from "../components/folder-logic/firestoreUtils";
+import FolderEdit from "../components/folder/folder-edit-mode/FolderEdit";
 
 export default function Editor() {
   const navigate = useNavigate();
@@ -122,7 +123,11 @@ export default function Editor() {
             onUpdateBack={(newBack) => updateFlashcardBack(flashcards.findIndex(card => card.id === flashcard.id), newBack)}
           />
         ))}
-        <AddCard onClick={handleAddCard} />
+        <AddCard onClick={handleAddCard}>Card</AddCard>
+        <AddCard onClick={()=>{}}>Folder</AddCard>
+        <div className="folder-edit-icon-container">
+          <FolderEdit />
+        </div>
       </div>
     </div>
   );
