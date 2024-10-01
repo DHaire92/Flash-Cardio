@@ -1,0 +1,48 @@
+.folder-mode-info-header-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-header {
+    margin: 10px 0px;
+    text-align: left;
+}
+
+.folder-utils-container {
+    display: flex;
+    justify-content: space-between;
+    
+    padding: 0 40px 0 40px;
+}
+
+.folder-mode-button-container {
+    display: flex;
+    justify-content: right;
+    width: 50%;
+    height: 50%;
+}
+
+.title-input {
+    padding: 7px 7px 0px 0px;
+    border: transparent;
+    border-bottom: 2px solid #281e1e;
+    margin: 13px;
+    
+    font-size: large;
+    
+    background-color: transparent;
+}
+
+.title-input:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.current-directory {
+    margin-left: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.current-directory-link:hover {
+    cursor: pointer;
+}

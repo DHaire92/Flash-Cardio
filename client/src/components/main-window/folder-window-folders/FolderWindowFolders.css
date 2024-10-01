@@ -1,0 +1,54 @@
+.file-item {
+    padding-left: 10px;
+}
+
+.folder-name {
+    padding-left: 3px;
+    font-weight: bold;
+}
+
+.file-header {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.file-content {
+    margin-left: 10px;
+}
+
+.window-flashcard-items {
+    text-decoration: underline;
+}
+
+.dropdown-btn {
+    border: transparent;
+    background-color: transparent;
+}
+
+.file-header-right {
+    font-weight: bolder;
+}
+
+.site-body-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-header {
+    text-align: center;
+}
+
+.folder-edit-util {
+    margin-right: 5px;
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+}
+
+.folder-edit-util:hover {
+    border-radius: 5px;
+    color: white;
+    background-color: #281e1e;
+}
+
