@@ -22,13 +22,15 @@ const FolderEdit = ({onUpdateSubFolderTitle, folderPath, folderData, onDelete, c
                 <div className="folder-edit-utils-container">
                     <button className="folder-edit-utils-nav" onClick={ async(e) => {
                         e.stopPropagation(e);
-                        navigate('/Editor', {state: { folderEditData: folderData }})
+                        navigate('/Editor', {state: { folderEditData: folderData }, replace: true})
                     }}><span>&#8658;</span> </button>
                     <button className="folder-edit-utils-delete" onClick={onDelete}>X</button>
                 </div>
                 </div>
             <div className="folder-edit-body">
-                <div className="folder-edit-card-amount">0 items</div>
+                <div className="folder-edit-card-amount">
+                    {folderData.flashcards.length} {folderData.flashcards.length == 1 ? "item" : "items"}
+                </div>
             </div>
         </div>
     );
