@@ -1,11 +1,8 @@
 .folder-edit-container {
-    width: 28.48vw;
-    height: 275px;
+    height: 100px;
 
     padding: 15px;
     border-radius: 15px;
-
-    /* margin-right: 25px; */
     margin-bottom: 25px;
     
     background-color: #281e1e;
@@ -17,10 +14,44 @@
 }
 
 .folder-edit-header {
+    display: flex;
+    justify-content: space-between;
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.folder-edit-name {
     font-size: 1.5rem;
     font-weight: bold;
+    color: white;
+
+    background-color: transparent;
+    border: transparent;
+}
+
+.folder-edit-name:focus {
+    outline: none;
+}
+
+.folder-edit-utils-nav, .folder-edit-utils-delete {
+    background-color: transparent;
+    border: solid 2px white;
+    border-radius: 5px;
+
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    transition: font-size 0.3s ease-in-out;
+}
+
+.folder-edit-utils-container {
+    display: flex;
+    justify-content: space-between;
+    width: 75px;
+}
+
+.folder-edit-utils-nav:hover, .folder-edit-utils-delete:hover {
+    font-size: 17px;
 }
 
 .folder-edit-card-amount {

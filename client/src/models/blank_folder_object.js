@@ -1,5 +1,6 @@
 export const blankFolder = {
     name: "",
+    path: "",
     flashcards: [
       {
         id: Date.now(),
@@ -14,6 +15,7 @@ export const blankFolder = {
     // test folder object populated with example data
     // fData = {
     //   name: 'World Capitols',
+    //   path: ""
       
     //   flashcards: [
     //     {

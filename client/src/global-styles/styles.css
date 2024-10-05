@@ -19,7 +19,7 @@
 
   background-color: #281e1e;
 
-  transition-duration: 0.3s;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .main-button:hover {
@@ -33,7 +33,9 @@
   }
 
   .App {
-    height: 100vh;
+    height: 150%;
+    width: 100%;
+    
     background-color: #FAF0DC;
   }
 

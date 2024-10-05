@@ -6,8 +6,9 @@ import { BackToHomeButton } from "../components/button/NavigationButtons";
 import Header from "../components/header/Header";
 import AddCard from "../components/flashcard/add-card/AddCard";
 import Flashcard from "../components/flashcard/flashcard-edit-mode/Flashcard";
-import { addFolder, updateFolder, deleteFolder } from "../components/folder-logic/firestoreUtils";
+import { addSubFolder, updateFolder, deleteFolder, getFolderData } from "../components/folder-logic/firestoreUtils";
 import FolderEdit from "../components/folder/folder-edit-mode/FolderEdit";
+import { blankFolder } from "../models/blank_folder_object";
 
 export default function Editor() {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ export default function Editor() {
   let folderData = location.state?.folderEditData;
 
   const [flashcards, setFlashcards] = useState([]);
+  const [folders, setFolders] = useState([]);
   const [title, setTitle] = useState('');
 
   useEffect(() => {
@@ -24,7 +26,34 @@ export default function Editor() {
     if (folderData?.flashcards) {
       setFlashcards(folderData.flashcards);
     }
+    if (folderData?.nestedFolders) {
+      setFolders(folderData.nestedFolders);
+    }
   }, [folderData]);
+
+  const handleAddFolder = async () => {
+    const newFolder = await addSubFolder(`${folderData.path}/subfolders`, blankFolder);
+
+    setFolders([...folders, newFolder]);
+    folderData.nestedFolders.push(newFolder);
+  }
+
+  const handleDeleteFolder = async (folderPath, id) => {
+    console.log(folderPath);
+    await deleteFolder(folderPath);
+    const updatedFolders = folders.filter((folder) => folder.id !== id);
+    const reorderedFolders = updatedFolders.map((folder, index) => ({
+      ...folder,
+    }));
+    setFolders(reorderedFolders);
+    folderData.nestedFolders = reorderedFolders
+  };
+
+  const onUpdateSubFolderTitle = async (folder, newTitle) => {
+    folder.name = newTitle;
+    console.log(folderData.path);
+    await updateFolder(folder.id, folder, `${folderData.path}/subfolders`);
+  }
 
   const handleAddCard = () => {
     const newFlashcard = {
@@ -77,7 +106,7 @@ export default function Editor() {
       <p>{JSON.stringify(folderData, null, 2)}</p>
       
       <div className="folder-mode-info-header-container">
-        <div className="page-header">Folder Mode</div>
+        <div className="page-header">Flashcards</div>
 
         <div className="current-directory">
           <b>Directory: </b>
@@ -97,13 +126,16 @@ export default function Editor() {
             />
           </div>
           <div className="folder-mode-button-container">              
-              <button className="main-button" onClick={(e) => {
+              <button className="main-button" onClick={async (e) => {
               e.stopPropagation();
-              updateFolder(folderData.id, folderData)}}>Save</button>
+              const pathParts = folderData.path.split('/');  // Split by '/'
+              pathParts.pop();  // Remove the last element
+              const newPath = pathParts.join('/');  // Join back into a string
+              await updateFolder(folderData.id, folderData, newPath)}}>Save</button>
 
               <button className="main-button" onClick={(e) => {
               e.stopPropagation();
-              deleteFolder(folderData.id);
+              deleteFolder(folderData.path);
               navigate('/Home');
               }}>Delete</button>
 
@@ -112,27 +144,37 @@ export default function Editor() {
         </div>
       </div>
 
-      <div className="edit-flashcard-container">
-        {flashcards.map((flashcard) => (
-          <Flashcard
-            key={flashcard.id} // Use the unique id as the key
-            cardNumber={flashcard.cardNumber}
-            cardContents={flashcard}
-            onDelete={() => handleDeleteCard(flashcard.id)}
-            onUpdateFront={(newFront) => updateFlashcardFront(flashcards.findIndex(card => card.id === flashcard.id), newFront)}
-            onUpdateBack={(newBack) => updateFlashcardBack(flashcards.findIndex(card => card.id === flashcard.id), newBack)}
-          />
-        ))}
-        <AddCard onClick={handleAddCard}>Card</AddCard>
-        <AddCard onClick={()=>{}}>Folder</AddCard>
-        <div className="folder-edit-icon-container">
-          <FolderEdit>Test Folder</FolderEdit>
-          <FolderEdit>Test Folder</FolderEdit>
-          <FolderEdit>Test Folder</FolderEdit>
-          <FolderEdit>Test Folder</FolderEdit>
-          <FolderEdit>Test Folder</FolderEdit>
-          <FolderEdit>Test Folder</FolderEdit>
-          <FolderEdit>Test Folder</FolderEdit>
+      <div className="edit-container">
+        <div className="edit-flashcard-container">
+          {flashcards.map((flashcard) => (
+            <Flashcard
+              key={flashcard.id} // Use the unique id as the key
+              cardNumber={flashcard.cardNumber}
+              cardContents={flashcard}
+              onDelete={() => handleDeleteCard(flashcard.id)}
+              onUpdateFront={(newFront) => updateFlashcardFront(flashcards.findIndex(card => card.id === flashcard.id), newFront)}
+              onUpdateBack={(newBack) => updateFlashcardBack(flashcards.findIndex(card => card.id === flashcard.id), newBack)}
+            />
+          ))}
+          <AddCard onClick={handleAddCard}>Card</AddCard>
+        </div>
+
+        <div className="edit-folder-container">
+
+          <div className="page-header">Folders</div>
+          <div className="folder-edit-icon-container">
+            {folders.map((folder) => (
+              <FolderEdit
+                key={folder.id}
+                folderPath={folder.path}
+                folderData={folder}
+                onDelete={() => {handleDeleteFolder(folder.path, folder.id)}}
+                onUpdateSubFolderTitle={(folder, newTitle) => onUpdateSubFolderTitle(folder, newTitle)}
+              >Test Folder</FolderEdit>
+            ))
+            }
+          </div>
+          <AddCard onClick={handleAddFolder}>Folder</AddCard>
         </div>
       </div>
     </div>

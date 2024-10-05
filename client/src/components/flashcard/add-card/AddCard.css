@@ -11,6 +11,7 @@
     text-align: center;
 
     background-color: #503c3c;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .add-text-container {
@@ -26,5 +27,4 @@
 
 .add-body:hover {
     background-color: #614949;
-    transition-duration: 0.3s;
 }

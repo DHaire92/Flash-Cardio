@@ -1,24 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import './FolderWindow.css';
 import FolderWindowFolder from '../folder-window-folders/FolderWindowFolder';
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from '../../../pages/App';
 
 function FolderWindow() {
     const [folderStructure, setFolderStructure] = useState([]);
 
+    const fetchFoldersRecursively = async (path) => {
+        const folderCollectionRef = collection(db, path);
+        const snapshot = await getDocs(folderCollectionRef);
+        
+        const folders = await Promise.all(snapshot.docs.map(async (doc) => {
+            const folderData = doc.data();
+            const nestedFolders = await fetchFoldersRecursively(`${path}/${doc.id}/subfolders`);
+            return { id: doc.id, ...folderData, nestedFolders };
+        }));
+        
+        return folders;
+    };
+
     useEffect(() => {
-        const folderCollectionRef = collection(db, 'flashcard-folders');
-
-        const unsubscribe = onSnapshot(folderCollectionRef, (snapshot) => {
-            const folders = snapshot.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data()
-            }));
+        const fetchData = async () => {
+            const folders = await fetchFoldersRecursively('flashcard-folders');
             setFolderStructure(folders);
-        });
-
-        return () => unsubscribe();
+        };
+        
+        fetchData();
     }, []);
 
     return (
@@ -34,6 +42,7 @@ function FolderWindow() {
                     </FolderWindowFolder>
                 ))}
             </div>
+            <p>{console.log(JSON.stringify(folderStructure, null, 2))}</p>
         </div>
     );
 }
