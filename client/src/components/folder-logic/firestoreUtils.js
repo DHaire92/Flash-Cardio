@@ -16,9 +16,7 @@ export const addFolder = async (fData) => {
 export const updateFolder = async (folderId, updatedData) => {
   try {
     const folderDocRef = doc(db, "flashcard-folders", folderId);
-    
     await updateDoc(folderDocRef, updatedData);
-    
     console.log(`Folder with ID ${folderId} successfully updated.`);
     return folderDocRef;
   } catch (e) {
@@ -31,7 +29,8 @@ export const deleteFolder = async (folderId) => {
   try {
     await deleteDoc(doc(db, 'flashcard-folders', folderId));
     console.log("Folder deleted");
-  } catch (error) {
-    console.error("Error deleting: ", error);
+  } catch (e) {
+    console.error("Error deleting: ", e);
+    throw e;
   }
 };

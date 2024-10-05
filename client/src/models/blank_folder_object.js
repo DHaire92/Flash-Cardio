@@ -11,6 +11,7 @@ export const blankFolder = {
     nestedFolders: []
   };
 
+    // test folder object populated with example data
     // fData = {
     //   name: 'World Capitols',
       
