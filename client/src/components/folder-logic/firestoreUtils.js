@@ -5,6 +5,7 @@ export const addSubFolder = async (parentFolderPath, fData) => {
   try {
     const folderCollectionRef = collection(db, parentFolderPath);
     const docRef = await addDoc(folderCollectionRef, fData);
+    
     fData.id = docRef.id;
     await updateFolderPath(fData, parentFolderPath);
 
@@ -21,7 +22,6 @@ export const addSubFolder = async (parentFolderPath, fData) => {
 export const updateFolder = async (updatedData) => {
   try {
     const folderPath = getParentPath(updatedData.path);
-    console.log("parent: " + folderPath);
     const folderDocRef = doc(db, folderPath, updatedData.id);
     
     await updateDoc(folderDocRef, updatedData);
@@ -45,7 +45,7 @@ export const deleteFolder = async (folderPath) => {
 
 const updateFolderPath = async (fData, parentFolderPath) => {
   try {
-    fData.path = getFolderPath(parentFolderPath, fData.id);
+    fData.path = `${parentFolderPath}/${fData.id}`
     await updateFolder(fData);
 
     console.log("Folder path updated.");
@@ -64,10 +64,4 @@ const getParentPath = (folderPath) => {
   const parentPath = pathParts.join('/');
 
   return parentPath;
-};
-
-const getFolderPath = (parentFolderPath, docId) => {
-  return parentFolderPath 
-    ? `${parentFolderPath}/${docId}` 
-    : `flashcard-folders/${docId}`;
 };
