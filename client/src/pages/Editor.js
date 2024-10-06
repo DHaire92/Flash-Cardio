@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import '../global-styles/styles.css';
 import './page-styles/Editor.css';
-import { BackToHomeButton } from "../components/button/NavigationButtons";
+
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import Header from "../components/header/Header";
 import AddCard from "../components/flashcard/add-card/AddCard";
 import Flashcard from "../components/flashcard/flashcard-edit-mode/Flashcard";
-import { addSubFolder, updateFolder, deleteFolder, getFolderData } from "../components/folder-logic/firestoreUtils";
 import FolderEdit from "../components/folder/folder-edit-mode/FolderEdit";
+
+import { BackToHomeButton } from "../components/button/NavigationButtons";
+import { addSubFolder, updateFolder, deleteFolder } from "../components/folder-logic/firestoreUtils";
 import { blankFolder } from "../models/blank_folder_object";
 
 export default function Editor() {
@@ -49,10 +52,10 @@ export default function Editor() {
     folderData.nestedFolders = reorderedFolders
   };
 
-  const onUpdateSubFolderTitle = async (folder, newTitle) => {
+  const onUpdateNestedFolderTitle = async (folder, newTitle) => {
     folder.name = newTitle;
     console.log(folderData.path);
-    await updateFolder(folder.id, folder, `${folderData.path}/subfolders`);
+    await updateFolder(folder);
   }
 
   const handleAddCard = () => {
@@ -127,16 +130,12 @@ export default function Editor() {
           </div>
           <div className="folder-mode-button-container">              
               <button className="main-button" onClick={async (e) => {
-              e.stopPropagation();
-              const pathParts = folderData.path.split('/');  // Split by '/'
-              pathParts.pop();  // Remove the last element
-              const newPath = pathParts.join('/');  // Join back into a string
-              await updateFolder(folderData.id, folderData, newPath)}}>Save</button>
+                  updateFolder(folderData)
+              }}>Save</button>
 
               <button className="main-button" onClick={(e) => {
-              e.stopPropagation();
-              deleteFolder(folderData.path);
-              navigate('/Home');
+                  deleteFolder(folderData.path);
+                  navigate('/Home');
               }}>Delete</button>
 
              <BackToHomeButton />
@@ -148,7 +147,7 @@ export default function Editor() {
         <div className="edit-flashcard-container">
           {flashcards.map((flashcard) => (
             <Flashcard
-              key={flashcard.id} // Use the unique id as the key
+              key={flashcard.id}
               cardNumber={flashcard.cardNumber}
               cardContents={flashcard}
               onDelete={() => handleDeleteCard(flashcard.id)}
@@ -169,8 +168,8 @@ export default function Editor() {
                 folderPath={folder.path}
                 folderData={folder}
                 onDelete={() => {handleDeleteFolder(folder.path, folder.id)}}
-                onUpdateSubFolderTitle={(folder, newTitle) => onUpdateSubFolderTitle(folder, newTitle)}
-              >Test Folder</FolderEdit>
+                onUpdateNestedFolderTitle={(folder, newTitle) => onUpdateNestedFolderTitle(folder, newTitle)}
+              />
             ))
             }
           </div>

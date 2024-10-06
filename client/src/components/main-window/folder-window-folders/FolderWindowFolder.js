@@ -31,18 +31,16 @@ function FolderWindowFolder({ folderData }) {
 
             {!isVisible && (
                 <div className="file-content">
-                    {/* Flashcards for the current folder */}
                     <div className="window-flashcard-items">
                         {folderData.flashcards.map((file, index) => (
-                            <FolderWindowFiles key={index}>
+                            <FolderWindowFiles 
+                                key={index}>
                                 {file.front}
                             </FolderWindowFiles>
                         ))}
                     </div>
-
-                    {/* Nested folders for the current folder */}
                     <div className="window-folder-items">
-                        {folderData.nestedFolders.map((nestedFolder, index) => (
+                        {folderData.nestedFolders.map((nestedFolder) => (
                             <FolderWindowFolder
                                 key={nestedFolder.id}
                                 folderData={nestedFolder}

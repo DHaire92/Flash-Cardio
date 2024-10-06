@@ -2,7 +2,7 @@ import './FolderEdit.css'
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-const FolderEdit = ({onUpdateSubFolderTitle, folderPath, folderData, onDelete, children}) => {
+const FolderEdit = ({folderData, onDelete, onUpdateNestedFolderTitle,}) => {
     const navigate = useNavigate();
     const [folderTitle, setFolderTitle] = useState(folderData.name);
 
@@ -16,14 +16,13 @@ const FolderEdit = ({onUpdateSubFolderTitle, folderPath, folderData, onDelete, c
                     value = {folderTitle} 
                     onChange={(e) => {
                         setFolderTitle(e.target.value);
-                        onUpdateSubFolderTitle(folderData, e.target.value);
+                        onUpdateNestedFolderTitle(folderData, e.target.value);
                     }}
                 />   
                 <div className="folder-edit-utils-container">
                     <button className="folder-edit-utils-nav" onClick={ async(e) => {
-                        e.stopPropagation(e);
                         navigate('/Editor', {state: { folderEditData: folderData }, replace: true})
-                    }}><span>&#8658;</span> </button>
+                    }}>&#8658;</button>
                     <button className="folder-edit-utils-delete" onClick={onDelete}>X</button>
                 </div>
                 </div>
