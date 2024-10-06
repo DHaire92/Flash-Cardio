@@ -1,10 +1,27 @@
 import './FolderEdit.css'
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { updateFolder } from '../../folder-logic/firestoreUtils';
 
-const FolderEdit = ({folderData, onDelete, onUpdateNestedFolderTitle,}) => {
+const FolderEdit = ({folderData, onDelete}) => {
     const navigate = useNavigate();
     const [folderTitle, setFolderTitle] = useState(folderData.name);
+
+    let updateFolderTimeout = null;
+
+    const onUpdateNestedFolderTitle = (newTitle) => {
+        folderData.name = newTitle;
+
+        if (updateFolderTimeout) {
+            clearTimeout(updateFolderTimeout);
+        }
+
+        updateFolderTimeout = setTimeout(async () => {
+            console.log(folderData.path);
+            await updateFolder(folderData);
+            updateFolderTimeout = null;
+        }, 3000);
+    };
 
     return (
         <div className="folder-edit-container">
@@ -16,7 +33,7 @@ const FolderEdit = ({folderData, onDelete, onUpdateNestedFolderTitle,}) => {
                     value = {folderTitle} 
                     onChange={(e) => {
                         setFolderTitle(e.target.value);
-                        onUpdateNestedFolderTitle(folderData, e.target.value);
+                        onUpdateNestedFolderTitle(e.target.value);
                     }}
                 />   
                 <div className="folder-edit-utils-container">

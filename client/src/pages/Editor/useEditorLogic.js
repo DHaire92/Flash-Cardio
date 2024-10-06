@@ -1,4 +1,3 @@
-// useEditorLogic.js
 import { useState, useEffect } from 'react';
 import { addSubFolder, updateFolder, deleteFolder } from '../../components/folder-logic/firestoreUtils';
 import { blankFolder } from '../../models/blank_folder_object';
@@ -50,12 +49,6 @@ export default function useEditorLogic(folderData, navigate) {
     folderData.flashcards = updatedFlashcards;
   };
 
-  const onUpdateNestedFolderTitle = async (folder, newTitle) => {
-    folder.name = newTitle;
-    console.log(folderData.path);
-    await updateFolder(folder);
-  }
-
   const updateFlashcardFront = (index, newFront) => {
     const updatedFlashcards = [...flashcards];
     updatedFlashcards[index].front = newFront;
@@ -97,6 +90,5 @@ export default function useEditorLogic(folderData, navigate) {
     updateTitle,
     saveFolder,
     deleteCurrentFolder,
-    onUpdateNestedFolderTitle
   };
 }

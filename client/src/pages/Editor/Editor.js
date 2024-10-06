@@ -1,4 +1,3 @@
-// Editor.js
 import '../../global-styles/styles.css';
 import '../page-styles/Editor.css';
 
@@ -31,7 +30,6 @@ export default function Editor() {
     updateTitle,
     saveFolder,
     deleteCurrentFolder,
-    onUpdateNestedFolderTitle
   } = useEditorLogic(folderData, navigate);
 
   return (
@@ -89,7 +87,6 @@ export default function Editor() {
                 folderPath={folder.path}
                 folderData={folder}
                 onDelete={() => handleDeleteFolder(folder.path, folder.id)}
-                onUpdateNestedFolderTitle={(newTitle) => onUpdateNestedFolderTitle(folder, newTitle)}
               />
             ))}
           </div>

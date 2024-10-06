@@ -21,6 +21,7 @@ export const addSubFolder = async (parentFolderPath, fData) => {
 export const updateFolder = async (updatedData) => {
   try {
     const folderPath = getParentPath(updatedData.path);
+    console.log("parent: " + folderPath);
     const folderDocRef = doc(db, folderPath, updatedData.id);
     
     await updateDoc(folderDocRef, updatedData);
