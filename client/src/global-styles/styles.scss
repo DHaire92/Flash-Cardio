@@ -28,59 +28,51 @@
   background-color: $van-dyke;
 }
 
-
 .main_container {
-    display: flex;
-    height: 100vh;
-  }
+  display: flex;
+  height: 100vh;
+}
 
-  .App {
-    height: 150%;
-    width: 100%;
-    
-    background-color: $papaya-whip;
-  }
+.question-text {
+  margin: 10px 0;    /* Add some margin for spacing */
 
-  .question-text {
-    margin: 10px 0;    /* Add some margin for spacing */
+  color: black;      /* Set the text color */
+  font-size: 18px;   /* Set the font size */
+}
 
-    color: black;      /* Set the text color */
-    font-size: 18px;   /* Set the font size */
-  }
+.error-message {
+  margin-top:auto;
 
-  .error-message {
-    margin-top:auto;
+  color:red;
+  font-weight: bold;
+}
 
-    color:red;
-    font-weight: bold;
-  }
+.logo_image {
+  width: 300px;
+  height: 300px;
+  margin: 20px;
+}
+
+input[type="email"].basic-input,
+input[type="password"].basic-input,
+input[type="text"].basic-input {
+  width: 15%;
+  padding: 12px;
+  margin: 8px;
+  margin-right: 10px;
   
-  .logo_image {
-    width: 300px;
-    height: 300px;
-    margin: 20px;
-  }
-  
-  input[type="email"].basic-input,
-  input[type="password"].basic-input,
-  input[type="text"].basic-input {
-    width: 15%;
-    padding: 12px;
-    margin: 8px;
-    margin-right: 10px;
-    
-    box-sizing: border-box;
-    border: 2px solid $pure-white;
-    border-radius: 4px;
+  box-sizing: border-box;
+  border: 2px solid $pure-white;
+  border-radius: 4px;
 
-    font-size: 16px;
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  }
-  
-  input[type="email"].basic-input:focus,
-  input[type="password"].basic-input:focus,
-  input[type="text"].basic-input:focus {
-    border-color: #66afe9;
-    box-shadow: 0 0 8px 0 rgba(102, 175, 233, 0.6);
-    outline: none;
-  }
+  font-size: 16px;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+input[type="email"].basic-input:focus,
+input[type="password"].basic-input:focus,
+input[type="text"].basic-input:focus {
+  border-color: #66afe9;
+  box-shadow: 0 0 8px 0 rgba(102, 175, 233, 0.6);
+  outline: none;
+}

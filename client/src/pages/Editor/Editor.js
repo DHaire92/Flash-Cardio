@@ -36,8 +36,6 @@ export default function Editor() {
   return (
     <div className="App">
       <Header>Question Editor</Header>
-
-      <p>{JSON.stringify(folderData, null, 2)}</p>
       
       <div className="folder-mode-info-header-container">
         <div className="page-header">Flashcards</div>
@@ -95,6 +93,7 @@ export default function Editor() {
           <AddCard onClick={handleAddFolder}>Folder</AddCard>
         </div>
       </div>
+      {console.log(JSON.stringify(folderData, null, 2))}
     </div>
   );
 }

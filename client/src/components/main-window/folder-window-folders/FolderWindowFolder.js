@@ -20,12 +20,19 @@ function FolderWindowFolder({ folderData }) {
                 </div>
                 <div className="file-header-right">
                     <button
+                        className='folder-edit-util'
                         onClick={(e) => {
                             e.stopPropagation();
                             navigate('/Editor', { state: { folderEditData: folderData } });
                         }}
-                        className='folder-edit-util'>...</button>
-                    <span>+</span>
+                        >...</button>
+                    <button 
+                        className="folder-add-util"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            console.log("test");
+                        }}
+                        >+</button>
                 </div>
             </div>
 

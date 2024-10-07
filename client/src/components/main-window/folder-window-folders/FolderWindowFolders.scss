@@ -30,8 +30,20 @@
     background-color: transparent;
 }
 
-.file-header-right {
+.file-header-right > * {
     font-weight: bolder;
+    background-color: transparent;
+    border: transparent;
+    color: $licorice;
+    cursor: pointer;
+
+    // all elements inside of this element will do this
+    &:hover,
+    hover * {
+        border-radius: 5px;
+        color: $pure-white;
+        background-color: $licorice;
+    }
 }
 
 .site-body-container {
@@ -42,18 +54,3 @@
 .page-header {
     text-align: center;
 }
-
-.folder-edit-util {
-    margin-right: 5px;
-    background-color: transparent;
-    border: transparent;
-    color: $licorice;
-    cursor: pointer;
-}
-
-.folder-edit-util:hover {
-    border-radius: 5px;
-    color: $pure-white;
-    background-color: $licorice;
-}
-
