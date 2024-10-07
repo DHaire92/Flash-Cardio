@@ -42,7 +42,6 @@ function FolderWindow() {
                     </FolderWindowFolder>
                 ))}
             </div>
-            <p>{console.log(JSON.stringify(folderStructure, null, 2))}</p>
         </div>
     );
 }

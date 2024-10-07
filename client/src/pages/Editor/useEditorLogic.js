@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { addSubFolder, updateFolder, deleteFolder } from '../../components/folder-logic/firestoreUtils';
+import { addFolder, updateFolder, deleteFolder, getFolder, getParentPath } from '../../components/folder-logic/firestoreUtils';
 import { blankFolder } from '../../models/blank_folder_object';
 
 export default function useEditorLogic(folderData, navigate) {
@@ -20,7 +20,7 @@ export default function useEditorLogic(folderData, navigate) {
   }, [folderData]);
 
   const handleAddFolder = async () => {
-    const newFolder = await addSubFolder(`${folderData.path}/subfolders`, blankFolder);
+    const newFolder = await addFolder(`${folderData.path}/subfolders`, blankFolder);
     setFolders([...folders, newFolder]);
     folderData.nestedFolders.push(newFolder);
   };
@@ -77,6 +77,17 @@ export default function useEditorLogic(folderData, navigate) {
     navigate('/Home');
   };
 
+  const NavigateUpOneFolder = async (folderPath) => {
+    const parentPath = await getParentPath(folderPath, 2);
+
+    if (parentPath) {
+      let parentData = await getFolder(parentPath);
+      navigate('/Editor', { state: { folderEditData: parentData} });
+    } else {
+      navigate('/Home');
+    }
+  }
+
   return {
     title,
     flashcards,
@@ -90,5 +101,6 @@ export default function useEditorLogic(folderData, navigate) {
     updateTitle,
     saveFolder,
     deleteCurrentFolder,
+    NavigateUpOneFolder,
   };
 }

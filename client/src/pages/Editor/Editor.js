@@ -30,6 +30,7 @@ export default function Editor() {
     updateTitle,
     saveFolder,
     deleteCurrentFolder,
+    NavigateUpOneFolder,
   } = useEditorLogic(folderData, navigate);
 
   return (
@@ -56,6 +57,7 @@ export default function Editor() {
             />
           </div>
           <div className="folder-mode-button-container">
+            <button className="main-button" onClick={() =>{NavigateUpOneFolder(folderData.path)}}>Up 1 folder</button>
             <button className="main-button" onClick={saveFolder}>Save</button>
             <button className="main-button" onClick={deleteCurrentFolder}>Delete</button>
             <BackToHomeButton />
