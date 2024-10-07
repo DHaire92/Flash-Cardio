@@ -1,0 +1,65 @@
+@import "../../../global-styles/css-variables.scss";
+
+.folder-edit-container {
+    height: 100px;
+
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    
+    background-color: $licorice;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.folder-edit-container:hover {
+    background-color: $van-dyke;
+}
+
+.folder-edit-header {
+    display: flex;
+    justify-content: space-between;
+
+    color: $pure-white;
+    font-family: $primary-font;
+}
+
+.folder-edit-name {
+    border: transparent;
+
+    color: $pure-white;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    background-color: transparent;
+}
+
+.folder-edit-name:focus {
+    outline: none;
+}
+
+.folder-edit-utils-nav, .folder-edit-utils-delete {
+    border: solid 2px $pure-white;
+    border-radius: 5px;
+    
+    color: $pure-white;
+    font-size: 16px;
+    font-weight: bold;
+    
+    background-color: transparent;
+    transition: font-size 0.3s ease-in-out;
+}
+
+.folder-edit-utils-container {
+    display: flex;
+    justify-content: space-between;
+    width: 75px;
+}
+
+.folder-edit-utils-nav:hover, .folder-edit-utils-delete:hover {
+    font-size: 17px;
+}
+
+.folder-edit-card-amount {
+    color: $pure-white;
+    font-family: $primary-font;
+}

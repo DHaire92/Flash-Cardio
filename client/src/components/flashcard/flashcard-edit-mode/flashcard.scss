@@ -1,0 +1,86 @@
+@import "../../../global-styles/css-variables.scss";
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+
+    height: 150px;
+    padding: 10px 15px;
+    border-width: 1px 5px 5px 5px;
+    border-style: solid;
+    border-color: $licorice;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin: 0px 50px 10px 50px;
+
+    background-color: $van-dyke;
+}
+
+.card-toolbar {
+    display: flex;
+    justify-content: space-between;
+
+    height: 20px;
+    padding: 10px 15px;
+    border-width: 5px 5px 1px 5px;
+    border-style: solid;
+    border-color: $licorice;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin: 0 50px;
+
+    color: $pure-white;
+    font-family: $primary-font;
+    font-weight: bold;
+
+    background-color: $van-dyke;
+}
+
+.card-content {
+    display: flex;
+    width: 100%;
+}
+
+.text-container {
+    display: flex;
+    justify-content: start;
+    gap: 15%;
+
+    align-items: end;
+
+    width: 100%;
+    padding: 20px;
+    margin: 10px;
+
+    font-size: 30px;
+}
+
+.card-input {
+    height: 25%;
+    width: 35%;
+    border-width: 0px;
+    border-bottom: 2px solid $licorice;
+
+    color: $pure-white;
+    font-size: large;
+
+    background-color: transparent;
+}
+
+.card-input:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.delete-card {
+    background-color: transparent;
+    color: $pure-white;
+    font-family: $primary-font;
+    font-weight: bold;
+    border: none;
+}
+
+.delete-card:hover {
+    background-color: $licorice;
+    border-radius: 5px;
+}

@@ -1,4 +1,4 @@
-import './FolderWindowFolders.css';
+import './FolderWindowFolders.scss';
 import FolderWindowFiles from '../folder-window-flashcards/FolderWindowFiles';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';

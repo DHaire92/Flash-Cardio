@@ -1,4 +1,4 @@
-import './FolderEdit.css'
+import './FolderEdit.scss'
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { updateFolder } from '../../folder-logic/firestoreUtils';

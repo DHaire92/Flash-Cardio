@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './FolderWindow.css';
+import './FolderWindow.scss';
 import FolderWindowFolder from '../folder-window-folders/FolderWindowFolder';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from '../../../pages/App';

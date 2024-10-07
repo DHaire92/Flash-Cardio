@@ -1,0 +1,22 @@
+@import "../../global-styles/css-variables.scss";
+
+.flashcardio-header {
+    top:0;
+    left: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 100%;
+    padding: 10px 20px;
+
+    color: $pure-white;
+    font-family: $primary-font;
+    
+    background-color: $licorice;
+}
+
+.header-title {
+    font-size: $header-size;
+}

@@ -1,4 +1,4 @@
-import './flashcard-view.css'
+import './flashcard-view.scss'
 
 const FlashcardView = ({cardNumber}) => {
     return (

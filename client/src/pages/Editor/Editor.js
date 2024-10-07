@@ -1,5 +1,5 @@
-import '../../global-styles/styles.css';
-import '../page-styles/Editor.css';
+import '../../global-styles/styles.scss';
+import '../page-styles/Editor.scss';
 
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';

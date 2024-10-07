@@ -1,0 +1,13 @@
+@import "../../global-styles/css-variables.scss";
+
+.folder-window-container {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons-header-container {
+    display: flex;
+    justify-content: space-around; 
+    
+    margin: 0 5%;
+}

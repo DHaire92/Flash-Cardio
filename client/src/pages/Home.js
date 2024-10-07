@@ -1,11 +1,11 @@
+import './page-styles/Home.scss'
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import './page-styles/Home.css'
 import Header from "../components/header/Header";
 import { EditorNavButton, BackToLoginButton } from "../components/button/NavigationButtons";
 import FolderWindow from '../components/main-window/folder-window/FolderWindow'
-import { blankFolder } from "../models/blank_folder_object";
 import { addSubFolder } from "../components/folder-logic/firestoreUtils";
+import { blankFolder } from "../models/blank_folder_object";
 
 function Home() {
   const navigate = useNavigate();

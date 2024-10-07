@@ -1,4 +1,4 @@
-import './AddCard.css';
+import './AddCard.scss';
 
 const AddCard = ({ children, onClick }) => {
   return (

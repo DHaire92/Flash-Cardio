@@ -1,0 +1,27 @@
+@import "../../../global-styles/css-variables.scss";
+
+.folder-window {
+    display: flex;
+    flex-direction: column;
+
+    width: 50%;
+    font-family: $primary-font;
+}
+
+.folder-window-header {
+    height: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    background-color: $licorice;
+}
+
+.folder-window-body {
+    padding: 10px;
+    
+    border: $card-border;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    
+    background-color: $pure-white;
+}

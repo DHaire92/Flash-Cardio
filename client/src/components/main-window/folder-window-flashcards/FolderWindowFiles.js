@@ -1,4 +1,4 @@
-import './FolderWindowFiles.css'
+import './FolderWindowFiles.scss'
 
 function FolderWindowFiles({children}) {
     return (

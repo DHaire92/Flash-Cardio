@@ -1,0 +1,32 @@
+@import "../../../global-styles/css-variables.scss";
+
+.add-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 150px;
+    border: $card-border;
+    border-radius: 15px;
+    margin: 0px 50px 10px 50px;
+
+    text-align: center;
+
+    background-color: $van-dyke;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.add-text-container {
+    width: fit-content;
+    height: fit-content;
+    padding: 0;
+    border-bottom: $card-border;
+    border-radius: 3px;
+
+    color: $pure-white;
+    font-family: $primary-font;
+}
+
+.add-body:hover {
+    background-color: $rose-ebony;
+}

@@ -1,0 +1,59 @@
+@import "../../../global-styles/css-variables.scss";
+
+.file-item {
+    padding-left: 10px;
+    color: $licorice;
+}
+
+.folder-name {
+    padding-left: 3px;
+    font-weight: bold;
+}
+
+.file-header {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.file-content {
+    margin-left: 10px;
+}
+
+.window-flashcard-items {
+    text-decoration: underline;
+}
+
+.dropdown-btn {
+    color: $licorice;
+    border: transparent;
+    background-color: transparent;
+}
+
+.file-header-right {
+    font-weight: bolder;
+}
+
+.site-body-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-header {
+    text-align: center;
+}
+
+.folder-edit-util {
+    margin-right: 5px;
+    background-color: transparent;
+    border: transparent;
+    color: $licorice;
+    cursor: pointer;
+}
+
+.folder-edit-util:hover {
+    border-radius: 5px;
+    color: $pure-white;
+    background-color: $licorice;
+}
+
