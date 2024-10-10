@@ -9,8 +9,6 @@ export const addFolder = async (parentFolderPath, fData) => {
     fData.id = docRef.id;
     await updateFolderPath(fData, parentFolderPath);
 
-    console.log("Sub Folder added with ID: ", docRef.id);
-
     const folderSnapshot = await getDoc(docRef);
     return { id: folderSnapshot.id, ...fData };
   } catch (e) {
@@ -25,8 +23,6 @@ export const getFolder = async (folderPath) => {
     const folderSnapshot = await getDoc(docRef);
 
     if (folderSnapshot.exists()) {
-      console.log("folder data retrieved");
-
       return { id: folderSnapshot.id, ...folderSnapshot.data() };
     } else {
       console.log("No document found at the specified path.");
@@ -44,7 +40,6 @@ export const updateFolder = async (updatedData) => {
     const folderDocRef = doc(db, folderPath, updatedData.id);
     
     await updateDoc(folderDocRef, updatedData);
-    console.log(`Folder with path ${updatedData.path} updated.`);
     return folderDocRef;
   } catch (e) {
     console.error(`Error updating folder: ${updatedData.id}`, e);
@@ -55,7 +50,6 @@ export const updateFolder = async (updatedData) => {
 export const deleteFolder = async (folderPath) => {
   try {
     await deleteDoc(doc(db, folderPath));
-    console.log("Folder deleted");
   } catch (e) {
     console.error("Error deleting: ", e);
     throw e;
@@ -64,7 +58,6 @@ export const deleteFolder = async (folderPath) => {
 
 export const getParentPath = (folderPath, n) => {
   if (!folderPath) { return 'flashcard-folders'; }
-
   const pathParts = folderPath.split('/');
   
   for (let i = 0; i < n && pathParts.length > 0; i++) {
@@ -79,8 +72,6 @@ const updateFolderPath = async (fData, parentFolderPath) => {
   try {
     fData.path = `${parentFolderPath}/${fData.id}`
     await updateFolder(fData);
-
-    console.log("Folder path updated.");
     return fData.path;
   } catch (e) {
     console.error("Error updating path: ", e);
