@@ -15,20 +15,26 @@ function Home() {
         <div className="site-container">
             <Header>Home</Header>
             <div className="site-body-container">
-              <div className="page-header">Your Library</div>
-
-              <div className="buttons-header-container">
-                <button 
-                onClick={ async (e) => {
-                    await addFolder('flashcard-folders', blankFolder);
-                    navigate('/Editor', { state: { folderEditData: blankFolder} });
-                }} 
-                className='main-button'>Add New</button>
-                <BackToLoginButton />
+              <div className="page-header-container">
+                <div className="page-header">Your Library</div>
               </div>
 
-              <div className="folder-window-container">
-                <FolderWindow />
+              <div className="home-page-body">
+                <div className="buttons-header-container">
+                  <div className="buttons-container">
+                    <button 
+                    onClick={ async (e) => {
+                        await addFolder('flashcard-folders', blankFolder);
+                        navigate('/Editor', { state: { folderEditData: blankFolder} });
+                    }} 
+                    className='main-button'>Add New</button>
+                    <BackToLoginButton />
+                  </div>
+                </div>
+
+                <div className="folder-window-container">
+                  <FolderWindow />
+                </div>
               </div>
             </div>
         </div>

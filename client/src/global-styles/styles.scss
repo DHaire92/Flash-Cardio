@@ -1,7 +1,11 @@
 @import "./css-variables.scss";
 
 .page-header {
-  padding: 15px 0px 0px 50px;
+  display: flex;
+  justify-content: start;
+  width: 50%;
+  margin-top: 25px;
+  padding: 0;
 
   color: $licorice;
   font-family: $primary-font;

@@ -54,10 +54,11 @@ export default function Editor() {
               onChange={(e) => updateTitle(e.target.value)}
             />
           </div>
+
           <div className="folder-mode-button-container">
-            <button className="main-button" onClick={() =>{NavigateUpOneFolder(folderData.path)}}>Up 1 folder</button>
-            <button className="main-button" onClick={saveFolder}>Save</button>
-            <button className="main-button" onClick={deleteCurrentFolder}>Delete</button>
+            <button className="main-button" onClick={() => {NavigateUpOneFolder(folderData.path)}}>Up 1 folder</button>
+            <button className="main-button" onClick={() => {saveFolder()}}>Save</button>
+            <button className="main-button" onClick={() => {deleteCurrentFolder()}}>Delete</button>
             <BackToHomeButton />
           </div>
         </div>
@@ -75,7 +76,7 @@ export default function Editor() {
               onUpdateBack={(newBack) => updateFlashcardBack(flashcards.findIndex(card => card.id === flashcard.id), newBack)}
             />
           ))}
-          <AddCard onClick={handleAddCard}>Card</AddCard>
+          <AddCard onClick={() => {handleAddCard()}}>Card</AddCard>
         </div>
 
         <div className="edit-folder-container">
@@ -90,7 +91,7 @@ export default function Editor() {
               />
             ))}
           </div>
-          <AddCard onClick={handleAddFolder}>Folder</AddCard>
+          <AddCard onClick={() => {handleAddFolder()}}>Folder</AddCard>
         </div>
       </div>
       {console.log(JSON.stringify(folderData, null, 2))}

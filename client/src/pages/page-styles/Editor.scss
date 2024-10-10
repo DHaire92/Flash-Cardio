@@ -3,18 +3,12 @@
 .folder-mode-info-header-container {
     display: flex;
     flex-direction: column;
-}
-
-.page-header {
-    margin: 10px 0px;
-    text-align: left;
+    margin: 0px 50px 0px 50px;
 }
 
 .folder-utils-container {
     display: flex;
     justify-content: space-between;
-    
-    padding: 0 40px 0 40px;
 }
 
 .folder-mode-button-container {
@@ -25,10 +19,9 @@
 }
 
 .title-input {
-    padding: 7px 7px 0px 0px;
     border: transparent;
     border-bottom: $title-bottom;
-    margin: 13px;
+    margin: 12px 0px 12px 0px;
     
     font-size: large;
     
@@ -41,7 +34,6 @@
 }
 
 .current-directory {
-    margin-left: 50px;
     font-family: $primary-font;
 }
 

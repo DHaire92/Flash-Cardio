@@ -44,7 +44,7 @@ export const updateFolder = async (updatedData) => {
     const folderDocRef = doc(db, folderPath, updatedData.id);
     
     await updateDoc(folderDocRef, updatedData);
-    console.log(`Folder with ID ${updatedData.id} updated.`);
+    console.log(`Folder with path ${updatedData.path} updated.`);
     return folderDocRef;
   } catch (e) {
     console.error(`Error updating folder: ${updatedData.id}`, e);
@@ -62,19 +62,6 @@ export const deleteFolder = async (folderPath) => {
   }
 };
 
-const updateFolderPath = async (fData, parentFolderPath) => {
-  try {
-    fData.path = `${parentFolderPath}/${fData.id}`
-    await updateFolder(fData);
-
-    console.log("Folder path updated.");
-    return fData.path;
-  } catch (e) {
-    console.error("Error updating path: ", e);
-    throw e;
-  }
-};
-
 export const getParentPath = (folderPath, n) => {
   if (!folderPath) { return 'flashcard-folders'; }
 
@@ -86,4 +73,17 @@ export const getParentPath = (folderPath, n) => {
 
   const parentPath = pathParts.join('/');
   return parentPath;
+};
+
+const updateFolderPath = async (fData, parentFolderPath) => {
+  try {
+    fData.path = `${parentFolderPath}/${fData.id}`
+    await updateFolder(fData);
+
+    console.log("Folder path updated.");
+    return fData.path;
+  } catch (e) {
+    console.error("Error updating path: ", e);
+    throw e;
+  }
 };
