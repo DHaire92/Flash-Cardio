@@ -1,7 +1,7 @@
 import './FolderEdit.scss'
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { updateFolder } from '../../folder-logic/firestoreUtils';
+import { updateFolder } from '../../../api/folderAPIs';
 
 const FolderEdit = ({folderData, onDelete}) => {
     const navigate = useNavigate();

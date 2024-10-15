@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { addFolder, getFolder, updateFolder, deleteFolder, getParentPath } from '../../components/folder-logic/firestoreUtils';
+import { addFolder, getFolder, updateFolder, deleteFolder, getParentPath } from '../../api/folderAPIs';
 import { blankFolder } from '../../models/blank_folder_object';
 
 export default function useEditorLogic(folderData, navigate) {
