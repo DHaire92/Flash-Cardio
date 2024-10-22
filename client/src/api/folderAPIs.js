@@ -25,7 +25,7 @@ export const getFolder = async (folderPath) => {
 
 export const updateFolder = async (updatedData) => {
   try {
-    const response = await axios.put(`${apiUrl}/updateFolder`, { updatedData });
+    const response = await axios.put(`${apiUrl}/updateFolder`, updatedData); // Send the object directly
     return response.data;
   } catch (error) {
     console.error("Error updating folder", error);

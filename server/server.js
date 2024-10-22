@@ -3,7 +3,7 @@ const cors = require('cors');
 const folderRoutes = require('./routes/folderRoutes')
 const app = express();
 
-// Allow requests from your frontend (e.g., http://localhost:3000)
+// Allow requests from frontend (e.g., http://localhost:3000)
 app.use(cors({
   origin: 'http://localhost:3000',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],

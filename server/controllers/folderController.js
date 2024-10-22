@@ -68,8 +68,6 @@ exports.fetchFoldersRecursively = async (req, res) => {
   
   const fetchRecursively = async (path) => {
       try {
-        console.log(path);
-
           const folderCollectionRef = collection(db, path);
           const snapshot = await getDocs(folderCollectionRef);
 
@@ -77,7 +75,6 @@ exports.fetchFoldersRecursively = async (req, res) => {
               const folderData = { id: doc.id, ...doc.data() }; 
 
               const nestedFolders = await fetchRecursively(`${path}/${doc.id}/subfolders`);
-              console.log("completed");
               return { ...folderData, nestedFolders };
           }));
 
