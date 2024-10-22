@@ -1,3 +1,10 @@
+
+@font-face {
+  font-family: 'soopa';
+  src: url('./fonts/soopafre.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+}
 .page-header {
   padding: 15px 0px 0px 50px;
 
@@ -35,7 +42,21 @@
   .App {
     height: 100vh;
     background-color: #FAF0DC;
+    /*my edits*/
+    .login-input-header{
+      font-size: 100px;
+      font-family: 'soopa', 'amonite', 'nulshock', 'AbstractGroovy', 'Supercharge'; /*'PLANK', 'Dream_MMA', 'Times New Roman';*/
+      font-weight: bold;
+      display: flex;
+      justify-content: center; /* Center horizontally */
+      align-items: center;     /* Center vertically */
+      flex-direction: column;  /* Stack elements vertically */
+      color: #281e1e;
+      margin: 100px 100px 100px 100px;
+    }
+    
   }
+  
 
   .question-text {
     margin: 10px 0;    /* Add some margin for spacing */
@@ -80,3 +101,4 @@
     box-shadow: 0 0 8px 0 rgba(102, 175, 233, 0.6);
     outline: none;
   }
+  

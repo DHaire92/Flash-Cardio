@@ -30,6 +30,7 @@ function Login() {
         <Header>Login</Header>
         <header className="App-header">
           <div className="login-input-header">
+            <header className="centered-login"> FlashCardio </header>
             <input 
               className='basic-input'
               type="email" 
