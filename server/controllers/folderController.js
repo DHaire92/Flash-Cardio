@@ -37,10 +37,9 @@ exports.getFolder = async (req, res) => {
 };
 
 exports.updateFolder = async (req, res) => {
-  const { updatedData } = req.body;
+  const updatedData  = req.body;
   try {
     const folderPath = await this.getParentPathHelper(updatedData.path, 1);
-    console.log(folderPath);
     const folderDocRef = doc(db, folderPath, updatedData.id);
 
     await updateDoc(folderDocRef, updatedData);
