@@ -1,51 +1,52 @@
-import './FolderEdit.scss'
+import './FolderEdit.scss';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { updateFolder } from '../../../api/folderAPIs';
 
-const FolderEdit = ({folderData, onDelete}) => {
+const FolderEdit = ({ folderData, onDelete }) => {
     const navigate = useNavigate();
     const [folderTitle, setFolderTitle] = useState(folderData.name);
+    const updateFolderTimeout = useRef(null);
 
-    let updateFolderTimeout = null;
-
-    const onUpdateNestedFolderTitle = (newTitle) => {
-        folderData.name = newTitle;
-
-        if (updateFolderTimeout) {
-            clearTimeout(updateFolderTimeout);
+    //  Only update folder title every 1 second
+    useEffect(() => {
+        if (updateFolderTimeout.current) {
+            clearTimeout(updateFolderTimeout.current);
         }
 
-        updateFolderTimeout = setTimeout(async () => {
-            console.log(folderData.path);
-            await updateFolder(folderData);
-            updateFolderTimeout = null;
-        }, 3000);
-    };
+        updateFolderTimeout.current = setTimeout(async () => {
+            if (folderData.name !== folderTitle) {
+                folderData.name = folderTitle;
+                await updateFolder(folderData);
+            }
+        }, 1000);
+
+        return () => clearTimeout(updateFolderTimeout.current);
+    }, [folderTitle]);
 
     return (
         <div className="folder-edit-container">
             <div className="folder-edit-header">
-                <input 
+                <input
                     className="folder-edit-name"
-                    type= "text"
+                    type="text"
                     placeholder="Add a Title..."
-                    value = {folderTitle} 
-                    onChange={(e) => {
-                        setFolderTitle(e.target.value);
-                        onUpdateNestedFolderTitle(e.target.value);
-                    }}
-                />   
+                    value={folderTitle}
+                    onChange={(e) => setFolderTitle(e.target.value)}
+                />
                 <div className="folder-edit-utils-container">
-                    <button className="folder-edit-utils-nav" onClick={ async(e) => {
-                        navigate(`/Editor/${folderData.path}`);
-                    }}>&#8658;</button>
+                    <button
+                        className="folder-edit-utils-nav"
+                        onClick={() => navigate(`/Editor/${folderData.path}`)}
+                    >
+                        &#8658;
+                    </button>
                     <button className="folder-edit-utils-delete" onClick={onDelete}>X</button>
                 </div>
-                </div>
+            </div>
             <div className="folder-edit-body">
                 <div className="folder-edit-card-amount">
-                    {folderData.flashcards.length} {folderData.flashcards.length == 1 ? "item" : "items"}
+                    {folderData.flashcards.length} {folderData.flashcards.length === 1 ? "item" : "items"}
                 </div>
             </div>
         </div>

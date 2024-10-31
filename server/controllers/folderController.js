@@ -42,7 +42,7 @@ exports.updateFolder = async (req, res) => {
   try {
     const folderPath = await this.getParentPathHelper(updatedData.path, 1);
     const folderDocRef = doc(db, folderPath, updatedData.id);
-
+    console.log("test0");
     await updateDoc(folderDocRef, updatedData);
     res.json({ message: "Folder updated successfully" });
   } catch (error) {
@@ -77,7 +77,7 @@ exports.fetchFoldersRecursively = async (req, res) => {
               const nestedFolders = await fetchRecursively(`${path}/${doc.id}/subfolders`);
               return { ...folderData, nestedFolders };
           }));
-          console.log(folders);
+          console.log(JSON.stringify(folders, null, 2));
           return folders;
       } catch (fetchError) {
           console.error(`Error fetching path: ${path}`, fetchError);
