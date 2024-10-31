@@ -4,7 +4,6 @@ const apiUrl = "http://localhost:5000/api/folders";
 
 export const addFolder = async (parentFolderPath, fData) => {
   try {
-    console.log("test")
     const response = await axios.post(`${apiUrl}/addFolder`, { parentFolderPath, fData });
     return response.data;
   } catch (error) {

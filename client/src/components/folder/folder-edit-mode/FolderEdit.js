@@ -38,7 +38,7 @@ const FolderEdit = ({folderData, onDelete}) => {
                 />   
                 <div className="folder-edit-utils-container">
                     <button className="folder-edit-utils-nav" onClick={ async(e) => {
-                        navigate('/Editor', {state: { folderEditData: folderData }, replace: true})
+                        navigate(`/Editor/${folderData.path}`);
                     }}>&#8658;</button>
                     <button className="folder-edit-utils-delete" onClick={onDelete}>X</button>
                 </div>

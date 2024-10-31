@@ -3,17 +3,16 @@ import Button from './Button'
 
 //Navigation Buttons
 export function CreateAccountNavButton() {
-    const navigate = useNavigate();
     return  (
       <Button text='Create Account' navigateTo='/signup' />
     );
   }
 
-  export function EditorNavButton({ folderEditData }) {
+  export function EditorNavButton() {
     const navigate = useNavigate();
   
     const handleNavigation = () => {
-      navigate('/Editor', { state: { folderEditData } });
+      navigate('/Editor');
     };
   
     return (
@@ -22,14 +21,12 @@ export function CreateAccountNavButton() {
   }
 
   export function BackToLoginButton() {
-    const navigate = useNavigate();
     return  (
       <Button text='Back' navigateTo='/' />
     );
   }
 
   export function BackToHomeButton() {
-    const navigate = useNavigate();
     return  (
       <Button text='Back' navigateTo='/Home' />
     );

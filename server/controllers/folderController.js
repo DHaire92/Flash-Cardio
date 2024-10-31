@@ -37,7 +37,8 @@ exports.getFolder = async (req, res) => {
 };
 
 exports.updateFolder = async (req, res) => {
-  const updatedData  = req.body;
+  const updatedData = req.body.updatedData;
+
   try {
     const folderPath = await this.getParentPathHelper(updatedData.path, 1);
     const folderDocRef = doc(db, folderPath, updatedData.id);
@@ -67,8 +68,6 @@ exports.fetchFoldersRecursively = async (req, res) => {
   
   const fetchRecursively = async (path) => {
       try {
-        console.log(path);
-
           const folderCollectionRef = collection(db, path);
           const snapshot = await getDocs(folderCollectionRef);
 
@@ -76,10 +75,9 @@ exports.fetchFoldersRecursively = async (req, res) => {
               const folderData = { id: doc.id, ...doc.data() }; 
 
               const nestedFolders = await fetchRecursively(`${path}/${doc.id}/subfolders`);
-              console.log("completed");
               return { ...folderData, nestedFolders };
           }));
-
+          console.log(folders);
           return folders;
       } catch (fetchError) {
           console.error(`Error fetching path: ${path}`, fetchError);

@@ -24,8 +24,8 @@ function Home() {
                   <div className="buttons-container">
                     <button 
                     onClick={ async (e) => {
-                        await addFolder('flashcard-folders', blankFolder);
-                        navigate('/Editor', { state: { folderEditData: blankFolder} });
+                        const newFolder = await addFolder('flashcard-folders', blankFolder);
+                        navigate(`/Editor/${newFolder.path}`);
                     }} 
                     className='main-button'>Add New</button>
                     <BackToLoginButton />

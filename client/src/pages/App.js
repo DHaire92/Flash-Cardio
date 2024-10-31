@@ -6,7 +6,7 @@ import { getAuth } from "firebase/auth";
 import SignIn from './Login.js'; 
 import SignUp from './CreateAccount.js'; 
 import Home from './Home.js'; 
-import Editor from './Editor/Editor.js'
+import Editor from './Editor.js';
 import '../global-styles/styles.scss'
 
 import { QuestionProvider } from '../components/questions/QuestionContext.js'; 
@@ -35,7 +35,7 @@ function App() {
         <Route exact path="/" element={<SignIn />} />
         <Route exact path="/SignUp" element={<SignUp />} />
         <Route exact path="/Home" element={<Home />} />
-        <Route exact path="/Editor" element={<Editor />} />
+        <Route path="/Editor/*" element={<Editor />} />
       </Routes>
     </QuestionProvider>
   );
