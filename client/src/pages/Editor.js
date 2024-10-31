@@ -37,8 +37,8 @@ export default function Editor() {
     <div className="App">
       <Header>Question Editor</Header>
       
+      <div className="page-header">Flashcards</div>
       <div className="folder-mode-info-header-container">
-        <div className="page-header">Flashcards</div>
         <div className="current-directory">
           <b>Directory: </b>
           <u className="current-directory-link">{folderData.path}</u>

@@ -29,7 +29,6 @@ export default function useEditorLogic(navigate) {
           })
         );
         setFolders(expandedFolders.filter((folder) => folder !== null));
-        
       } catch (error) {
         console.error("Error fetching folder data:", error);
       }
@@ -47,6 +46,7 @@ export default function useEditorLogic(navigate) {
       ...folderData,
       nestedFolders: [...folderData.nestedFolders, newFolder.path]
     });
+    await saveFolder();
   };
 
   const handleDeleteFolder = async (folderPath, id) => {
@@ -63,6 +63,7 @@ export default function useEditorLogic(navigate) {
       };
   
       setFolderData(updatedFolderData);
+      await saveFolder();
     } catch (error) {
       console.error("Error deleting folder:", error);
     }

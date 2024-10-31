@@ -30,7 +30,11 @@ function Login() {
         <Header>Login</Header>
         <header className="App-header">
           <div className="login-input-header">
-            <header className="centered-login"> FlashCardio </header>
+            <header className="centered-login"> 
+            {("Flashcardio").split('').map((letter, index) => (
+              <span style={{animationDelay: `${Math.random()}s`}} className="rotating-letters">{letter === ' ' ? '\u00A0' : letter}</span>
+            ))}
+              </header>
             <input 
               className='basic-input'
               type="email" 
