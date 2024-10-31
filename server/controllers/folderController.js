@@ -42,7 +42,7 @@ exports.updateFolder = async (req, res) => {
   try {
     const folderPath = await this.getParentPathHelper(updatedData.path, 1);
     const folderDocRef = doc(db, folderPath, updatedData.id);
-    console.log("test0");
+
     await updateDoc(folderDocRef, updatedData);
     res.json({ message: "Folder updated successfully" });
   } catch (error) {
@@ -63,7 +63,6 @@ exports.deleteFolder = async (req, res) => {
 };
 
 exports.fetchFoldersRecursively = async (req, res) => {
-  // const { path } = req.params;
   const path = 'flashcard-folders';
   
   const fetchRecursively = async (path) => {
@@ -77,7 +76,7 @@ exports.fetchFoldersRecursively = async (req, res) => {
               const nestedFolders = await fetchRecursively(`${path}/${doc.id}/subfolders`);
               return { ...folderData, nestedFolders };
           }));
-          console.log(JSON.stringify(folders, null, 2));
+
           return folders;
       } catch (fetchError) {
           console.error(`Error fetching path: ${path}`, fetchError);
@@ -95,9 +94,7 @@ exports.fetchFoldersRecursively = async (req, res) => {
 };
   
 exports.getParentPathHelper = (folderPath, n) => {
-  if (!folderPath) {
-    return "flashcard-folders";
-  }
+  folderPath = folderPath || "flashcard-folders";
 
   const pathParts = folderPath.split('/');
   for (let i = 0; i < n && pathParts.length > 0; i++) {

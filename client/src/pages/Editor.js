@@ -20,6 +20,7 @@ export default function Editor() {
     title,
     flashcards,
     folders,
+    folderData,
     handleAddFolder,
     handleDeleteFolder,
     handleAddCard,
@@ -40,7 +41,7 @@ export default function Editor() {
         <div className="page-header">Flashcards</div>
         <div className="current-directory">
           <b>Directory: </b>
-          <u className="current-directory-link">Folder 1 / Folder 2</u>
+          <u className="current-directory-link">{folderData.path}</u>
         </div>
 
         <div className="folder-utils-container">
@@ -55,9 +56,9 @@ export default function Editor() {
           </div>
 
           <div className="folder-mode-button-container">
-            <button className="main-button" onClick={() => NavigateUpOneFolder()}>Up 1 folder</button>
-            <button className="main-button" onClick={saveFolder}>Save</button>
-            <button className="main-button" onClick={deleteCurrentFolder}>Delete</button>
+            <button className="main-button" onClick={() => NavigateUpOneFolder(folderData.path)}>Up 1 folder</button>
+            <button className="main-button" onClick={() => saveFolder()}>Save</button>
+            <button className="main-button" onClick={() => deleteCurrentFolder()}>Delete</button>
             <BackToHomeButton />
           </div>
         </div>

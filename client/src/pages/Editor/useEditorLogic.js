@@ -131,6 +131,7 @@ export default function useEditorLogic(navigate) {
 
   const NavigateUpOneFolder = async (folderPath) => {
     const parentPath = await getParentPath(folderPath, 2);
+    console.log(parentPath);
 
     if (parentPath && parentPath != "flashcard-folders") {
       navigate(`/Editor/${parentPath}`);
@@ -143,6 +144,7 @@ export default function useEditorLogic(navigate) {
     title,
     flashcards,
     folders,
+    folderData,
     handleAddFolder,
     handleDeleteFolder,
     handleAddCard,
