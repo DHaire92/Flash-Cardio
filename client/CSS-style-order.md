@@ -1,4 +1,5 @@
 ### Ordering Elements
+This File is a guide on how to order CSS styles in when styling components. Hopefully with this, the project will be more organized/ readable.
 
 **General Order:**
 

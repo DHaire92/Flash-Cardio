@@ -1,9 +1,11 @@
+@import "../../../global-styles/css-variables.scss";
+
 .folder-window {
     display: flex;
     flex-direction: column;
 
     width: 50%;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: $primary-font;
 }
 
 .folder-window-header {
@@ -11,15 +13,16 @@
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 
-    background-color: #281E1E;
+    background-color: $licorice;
 }
 
 .folder-window-body {
     padding: 10px;
+    min-height: 40vh;
     
-    border: 3px solid #281E1E;
+    border: $card-border;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     
-    background-color: white;
+    background-color: $pure-white;
 }

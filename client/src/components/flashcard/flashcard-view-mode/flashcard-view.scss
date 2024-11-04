@@ -1,3 +1,5 @@
+@import "../../../global-styles/css-variables.scss";
+
 .view-card-body {
     display: flex;
     justify-content: space-around;
@@ -6,12 +8,12 @@
     padding: 10px 15px;
     border-width: 0px 5px 5px 5px;
     border-style: solid;
-    border-color: #281e1e;
+    border-color: $licorice;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     margin: 0px 50px 10px 50px;
 
-    background-color: #503c3c;
+    background-color: $van-dyke;
 }
 
 .view-card-toolbar {
@@ -22,16 +24,16 @@
     padding: 10px 15px;
     border-width: 5px 5px 0px 5px;
     border-style: solid;
-    border-color: #281e1e;
+    border-color: $licorice;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     margin: 0 50px;
 
-    color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: $pure-white;
+    font-family: $primary-font;
     font-weight: bold;
 
-    background-color: #503c3c;
+    background-color: $van-dyke;
 }
 
 .view-card-content {
@@ -45,14 +47,14 @@
 .view-separator {
     width: 2px;
 
-    background-color: #281e1e;
+    background-color: $licorice;
 }
 
 .view-text-container {
     margin: 0px 50% 0px 0px;
 
-    color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: $pure-white;
+    font-family: $primary-font;
     font-size: large;
 
     background-color: transparent;

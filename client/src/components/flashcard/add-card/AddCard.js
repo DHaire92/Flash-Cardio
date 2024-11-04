@@ -1,9 +1,9 @@
-import './AddCard.css';
+import './AddCard.scss';
 
-const AddCard = ({ onClick }) => {
+const AddCard = ({ children, onClick }) => {
   return (
     <div className="add-body" onClick={onClick}>
-      <p className="add-text-container">Add Card +</p>
+      <p className="add-text-container">Add {children} +</p>
     </div>
   );
 };

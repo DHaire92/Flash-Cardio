@@ -1,3 +1,5 @@
+@import "../../../global-styles/css-variables.scss";
+
 .card-body {
     display: flex;
     justify-content: space-between;
@@ -6,12 +8,12 @@
     padding: 10px 15px;
     border-width: 1px 5px 5px 5px;
     border-style: solid;
-    border-color: #281e1e;
+    border-color: $licorice;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     margin: 0px 50px 10px 50px;
 
-    background-color: #503c3c;
+    background-color: $van-dyke;
 }
 
 .card-toolbar {
@@ -22,16 +24,16 @@
     padding: 10px 15px;
     border-width: 5px 5px 1px 5px;
     border-style: solid;
-    border-color: #281e1e;
+    border-color: $licorice;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     margin: 0 50px;
 
-    color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: $pure-white;
+    font-family: $primary-font;
     font-weight: bold;
 
-    background-color: #503c3c;
+    background-color: $van-dyke;
 }
 
 .card-content {
@@ -41,9 +43,9 @@
 
 .text-container {
     display: flex;
-    justify-content:start;
+    justify-content: start;
     gap: 15%;
-    
+
     align-items: end;
 
     width: 100%;
@@ -57,9 +59,9 @@
     height: 25%;
     width: 35%;
     border-width: 0px;
-    border-bottom: 2px solid #281e1e;
+    border-bottom: 2px solid $licorice;
 
-    color: white;
+    color: $pure-white;
     font-size: large;
 
     background-color: transparent;
@@ -70,15 +72,15 @@
     outline: none;
 }
 
-.delete-card{
+.delete-card {
     background-color: transparent;
-    color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: $pure-white;
+    font-family: $primary-font;
     font-weight: bold;
     border: none;
 }
 
 .delete-card:hover {
-    background-color: #281e1e;
+    background-color: $licorice;
     border-radius: 5px;
 }

@@ -1,0 +1,22 @@
+@import "../../global-styles/css-variables.scss";
+
+.page-header-container {
+    display: flex;
+    justify-content: center;
+}
+
+.folder-window-container {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons-header-container {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between; 
+    width: 50%;
+}

@@ -1,7 +1,7 @@
-import './flashcard.css';
+import './flashcard.scss';
 import { useState } from 'react';
 
-const Flashcard = ({ cardNumber, onDelete, onUpdateFront, onUpdateBack, cardContents }) => {
+const Flashcard = ({ cardNumber, cardContents, onDelete, onUpdateFront, onUpdateBack}) => {
   const [front, setFront] = useState(cardContents.front);
   const [back, setBack] = useState(cardContents.back);
 
