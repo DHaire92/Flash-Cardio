@@ -1,0 +1,23 @@
+@import "../../global-styles/css-variables.scss";
+    
+.rotating-letters {
+  display: inline-block;
+  animation: rotateAnimation 2s infinite ease-in-out;
+  transition: color 0.5s;
+
+  &:hover {
+    color: $van-dyke;
+  }
+}
+
+@keyframes rotateAnimation {
+    0% {
+        transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg)
+    }
+    100% {
+        transform: rotate(-3deg);
+    }
+}
