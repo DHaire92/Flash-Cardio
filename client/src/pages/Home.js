@@ -6,6 +6,7 @@ import { EditorNavButton, BackToLoginButton } from "../components/button/Navigat
 import FolderWindow from '../components/main-window/folder-window/FolderWindow'
 import { addFolder } from "../api/folderAPIs";
 import { blankFolder } from "../models/blank_folder_object";
+import TitleText from '../components/title-text/TitleText';
 
 function Home() {
   const navigate = useNavigate();
@@ -16,7 +17,9 @@ function Home() {
             <Header>Home</Header>
             <div className="site-body-container">
               <div className="page-header-container">
-                <div className="page-header">Your Library</div>
+                <div className="page-header">
+                  <TitleText>Your Library</TitleText>
+                </div>
               </div>
 
               <div className="home-page-body">

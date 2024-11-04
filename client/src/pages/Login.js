@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { CreateAccountNavButton } from "../components/button/NavigationButtons";
 import Header from "../components/header/Header"
+import TitleText from "../components/title-text/TitleText";
 
 console.log("Rendering Login Component");
 
@@ -31,10 +32,9 @@ function Login() {
         <header className="App-header">
           <div className="login-input-header">
             <header className="centered-login"> 
-            {("Flashcardio").split('').map((letter, index) => (
-              <span style={{animationDelay: `${Math.random()}s`}} className="rotating-letters">{letter === ' ' ? '\u00A0' : letter}</span>
-            ))}
-              </header>
+              <TitleText>Flashcardio</TitleText>
+            </header>
+
             <input 
               className='basic-input'
               type="email" 

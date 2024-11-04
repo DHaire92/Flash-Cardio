@@ -8,7 +8,6 @@ const FolderEdit = ({ folderData, onDelete }) => {
     const [folderTitle, setFolderTitle] = useState(folderData.name);
     const updateFolderTimeout = useRef(null);
 
-    //  Only update folder title every 1 second
     useEffect(() => {
         if (updateFolderTimeout.current) {
             clearTimeout(updateFolderTimeout.current);
@@ -19,7 +18,7 @@ const FolderEdit = ({ folderData, onDelete }) => {
                 folderData.name = folderTitle;
                 await updateFolder(folderData);
             }
-        }, 1000);
+        }, 10);
 
         return () => clearTimeout(updateFolderTimeout.current);
     }, [folderTitle]);

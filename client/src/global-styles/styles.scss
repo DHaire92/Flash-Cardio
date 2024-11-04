@@ -23,12 +23,11 @@
   border-radius: 15px;
   padding: 7px 13px;
 
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: $primary-font;
   font-weight: bold;
   color: white;
 
-  background-color: #281e1e;
-
+  background-color: $licorice;
   transition-duration: 0.3s;
 }
 
@@ -44,7 +43,7 @@
 
 .App {
   height: 100vh;
-  background-color: #FAF0DC;
+  background-color: $papaya-whip;
 }
 
 .login-input-header{
@@ -52,40 +51,18 @@
   font-family: $header-font;
   font-weight: bold;
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center;     /* Center vertically */
-  flex-direction: column;  /* Stack elements vertically */
-  color: #281e1e;
-  margin: 100px 100px 100px 100px;
-}
-  
-.rotating-letters {
-  display: inline-block;
-  animation: rotateAnimation 2s infinite ease-in-out;
-  transition: color 0.5s;
-
-  &:hover {
-    color: $van-dyke;
-  }
-}
-
-@keyframes rotateAnimation {
-    0% {
-        transform: rotate(-3deg);
-    }
-    50% {
-      transform: rotate(3deg)
-    }
-    100% {
-        transform: rotate(-3deg);
-    }
+  justify-content: center;
+  align-items: center;    
+  flex-direction: column; 
+  color: $licorice;
+  margin: 100px;
 }
 
 .question-text {
-  margin: 10px 0;    /* Add some margin for spacing */
+  margin: 10px 0; 
 
-  color: black;      /* Set the text color */
-  font-size: 18px;   /* Set the font size */
+  color: black;  
+  font-size: 18px;
 }
 
 .error-message {

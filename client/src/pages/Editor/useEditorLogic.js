@@ -41,17 +41,18 @@ export default function useEditorLogic(navigate) {
 
   const handleAddFolder = async () => {
     const newFolder = await addFolder(`${folderData.path}/subfolders`, blankFolder);
+    await saveFolder();
     setFolders([...folders, newFolder]);
     setFolderData({
       ...folderData,
       nestedFolders: [...folderData.nestedFolders, newFolder.path]
     });
-    await saveFolder();
   };
 
   const handleDeleteFolder = async (folderPath, id) => {
     try {
       await deleteFolder(folderPath);
+      await saveFolder();
   
       const updatedFolders = folders.filter((folder) => folder.path !== folderPath);
       setFolders(updatedFolders);
@@ -63,7 +64,6 @@ export default function useEditorLogic(navigate) {
       };
   
       setFolderData(updatedFolderData);
-      await saveFolder();
     } catch (error) {
       console.error("Error deleting folder:", error);
     }
@@ -132,9 +132,8 @@ export default function useEditorLogic(navigate) {
 
   const NavigateUpOneFolder = async (folderPath) => {
     const parentPath = await getParentPath(folderPath, 2);
-    console.log(parentPath);
 
-    if (parentPath && parentPath != "flashcard-folders") {
+    if (parentPath != "flashcard-folders") {
       navigate(`/Editor/${parentPath}`);
     } else {
       navigate('/Home');
