@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import '../global-styles/styles.css';
-import './page-styles/Editor.css';
+import './page-styles/Viewer.css';
 import { BackToHomeButton } from "../components/button/NavigationButtons";
 import Header from "../components/header/Header";
 import FlashcardView from "../components/flashcard/flashcard-view-mode/Flashcard-view";
