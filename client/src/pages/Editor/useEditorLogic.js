@@ -4,9 +4,7 @@ import { addFolder, getFolder, updateFolder, deleteFolder, getParentPath } from 
 import { blankFolder } from '../../models/blank_folder_object';
 
 export default function useEditorLogic(navigate) {
-  const [flashcards, setFlashcards] = useState([]);
   const [folders, setFolders] = useState([]);
-  const [title, setTitle] = useState('');
   const [folderData, setFolderData] = useState([]);
   const { '*': folderPath } = useParams();
 
@@ -14,9 +12,7 @@ export default function useEditorLogic(navigate) {
     const fetchFolderData = async () => {
       try {
         const folderData = await getFolder(folderPath);
-        setFolderData(folderData);
-        setTitle(folderData.name || "");                     
-        setFlashcards(folderData.flashcards || []);      
+        setFolderData(folderData);                         
 
         const expandedFolders = await Promise.all(
           (folderData.nestedFolders || []).map(async (folderLink) => {
@@ -41,13 +37,18 @@ export default function useEditorLogic(navigate) {
 
   const handleAddFolder = async () => {
     const newFolder = await addFolder(`${folderData.path}/subfolders`, blankFolder);
-    await saveFolder();
     setFolders([...folders, newFolder]);
     setFolderData({
       ...folderData,
       nestedFolders: [...folderData.nestedFolders, newFolder.path]
     });
+    await saveFolder();
   };
+
+  const handleNavigateFolder = async (path) => {
+    navigate(`/Editor/${path}`);
+    await saveFolder();
+  }
 
   const handleDeleteFolder = async (folderPath, id) => {
     try {
@@ -75,9 +76,8 @@ export default function useEditorLogic(navigate) {
       id: Date.now(),
       front: "",
       back: "",
-      cardNumber: flashcards.length + 1,
+      cardNumber: folderData.flashcards.length + 1,
     };
-    setFlashcards([...flashcards, newFlashcard]);
     setFolderData({
       ...folderData,
       flashcards: [...folderData.flashcards, newFlashcard]
@@ -85,8 +85,7 @@ export default function useEditorLogic(navigate) {
   };
 
   const handleDeleteCard = (id) => {
-    const updatedFlashcards = flashcards.filter((card) => card.id !== id);
-    setFlashcards(updatedFlashcards);
+    const updatedFlashcards = folderData.flashcards.filter((card) => card.id !== id);
     setFolderData({
       ...folderData,
       flashcards: updatedFlashcards
@@ -94,9 +93,8 @@ export default function useEditorLogic(navigate) {
   };
 
   const updateFlashcardFront = (index, newFront) => {
-    const updatedFlashcards = [...flashcards];
+    const updatedFlashcards = [...folderData.flashcards];
     updatedFlashcards[index].front = newFront;
-    setFlashcards(updatedFlashcards);
     setFolderData({
       ...folderData,
       flashcards: updatedFlashcards
@@ -104,9 +102,8 @@ export default function useEditorLogic(navigate) {
   };
 
   const updateFlashcardBack = (index, newBack) => {
-    const updatedFlashcards = [...flashcards];
+    const updatedFlashcards = [...folderData.flashcards];
     updatedFlashcards[index].back = newBack;
-    setFlashcards(updatedFlashcards);
     setFolderData({
       ...folderData,
       flashcards: updatedFlashcards
@@ -114,7 +111,6 @@ export default function useEditorLogic(navigate) {
   };
 
   const updateTitle = (newTitle) => {
-    setTitle(newTitle);
     setFolderData({
       ...folderData,
       name: newTitle
@@ -132,17 +128,10 @@ export default function useEditorLogic(navigate) {
 
   const NavigateUpOneFolder = async (folderPath) => {
     const parentPath = await getParentPath(folderPath, 2);
-
-    if (parentPath != "flashcard-folders") {
-      navigate(`/Editor/${parentPath}`);
-    } else {
-      navigate('/Home');
-    }
+    (parentPath) ? navigate(`/Editor/${parentPath}`) : navigate('/Home');
   }
 
   return {
-    title,
-    flashcards,
     folders,
     folderData,
     handleAddFolder,
@@ -155,5 +144,6 @@ export default function useEditorLogic(navigate) {
     saveFolder,
     deleteCurrentFolder,
     NavigateUpOneFolder,
+    handleNavigateFolder,
   };
 }

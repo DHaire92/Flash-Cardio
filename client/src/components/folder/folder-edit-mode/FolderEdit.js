@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { updateFolder } from '../../../api/folderAPIs';
 
-const FolderEdit = ({ folderData, onDelete }) => {
+const FolderEdit = ({ folderData, onDelete, handleNavigateFolder }) => {
     const navigate = useNavigate();
     const [folderTitle, setFolderTitle] = useState(folderData.name);
     const updateFolderTimeout = useRef(null);
@@ -18,7 +18,7 @@ const FolderEdit = ({ folderData, onDelete }) => {
                 folderData.name = folderTitle;
                 await updateFolder(folderData);
             }
-        }, 10);
+        }, 0);
 
         return () => clearTimeout(updateFolderTimeout.current);
     }, [folderTitle]);
@@ -36,7 +36,7 @@ const FolderEdit = ({ folderData, onDelete }) => {
                 <div className="folder-edit-utils-container">
                     <button
                         className="folder-edit-utils-nav"
-                        onClick={() => navigate(`/Editor/${folderData.path}`)}
+                        onClick={() => handleNavigateFolder(folderData.path)}
                     >
                         &#8658;
                     </button>

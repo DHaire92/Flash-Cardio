@@ -8,6 +8,7 @@ import Header from '../components/header/Header';
 import AddCard from '../components/flashcard/add-card/AddCard';
 import Flashcard from '../components/flashcard/flashcard-edit-mode/Flashcard';
 import FolderEdit from '../components/folder/folder-edit-mode/FolderEdit';
+import TitleText from '../components/title-text/TitleText'
 
 import { BackToHomeButton } from '../components/button/NavigationButtons';
 import useEditorLogic from './Editor/useEditorLogic.js';
@@ -17,8 +18,6 @@ export default function Editor() {
   const navigate = useNavigate();
 
   const {
-    title,
-    flashcards,
     folders,
     folderData,
     handleAddFolder,
@@ -31,13 +30,16 @@ export default function Editor() {
     saveFolder,
     deleteCurrentFolder,
     NavigateUpOneFolder,
+    handleNavigateFolder
   } = useEditorLogic(navigate);
 
   return (
     <div className="App">
+      {console.log(JSON.stringify(folderData.nestedFolders, null, 2))}
       <Header>Question Editor</Header>
       
-      <div className="page-header">Flashcards</div>
+      <div className="page-header"><TitleText>Flashcards</TitleText></div>
+
       <div className="folder-mode-info-header-container">
         <div className="current-directory">
           <b>Directory: </b>
@@ -50,7 +52,7 @@ export default function Editor() {
               type="text"
               className="title-input"
               placeholder="Add a title..."
-              value={title}
+              value={folderData.name || ""}
               onChange={(e) => updateTitle(e.target.value)}
             />
           </div>
@@ -66,27 +68,28 @@ export default function Editor() {
 
       <div className="edit-container">
         <div className="edit-flashcard-container">
-          {flashcards.map((flashcard) => (
+          {(folderData.flashcards || []).map((flashcard) => (
             <Flashcard
               key={flashcard.id}
               cardNumber={flashcard.cardNumber}
               cardContents={flashcard}
               onDelete={() => handleDeleteCard(flashcard.id)}
-              onUpdateFront={(newFront) => updateFlashcardFront(flashcards.findIndex(card => card.id === flashcard.id), newFront)}
-              onUpdateBack={(newBack) => updateFlashcardBack(flashcards.findIndex(card => card.id === flashcard.id), newBack)}
+              onUpdateFront={(newFront) => updateFlashcardFront(folderData.flashcards.findIndex(card => card.id === flashcard.id), newFront)}
+              onUpdateBack={(newBack) => updateFlashcardBack(folderData.flashcards.findIndex(card => card.id === flashcard.id), newBack)}
             />
           ))}
           <AddCard onClick={handleAddCard}>Card</AddCard>
         </div>
 
         <div className="edit-folder-container">
-          <div className="page-header">Folders</div>
+        <div className="page-header"><TitleText>Folders</TitleText></div>
           <div className="folder-edit-icon-container">
             {folders.map((folder) => (
               <FolderEdit
                 key={folder.id}
                 folderPath={folder.path}
                 folderData={folder}
+                handleNavigateFolder={handleNavigateFolder}
                 onDelete={() => handleDeleteFolder(folder.path, folder.id)}
               />
             ))}
