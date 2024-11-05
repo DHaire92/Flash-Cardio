@@ -1,5 +1,11 @@
 # FlashCardio
 
+## HOW TO COMMIT
+1. git add .
+2. git commit -m "message"
+    - git commit a -m "message" to do
+3. git push origin HEAD
+
 ## HOW TO START
 1. Start the client:
     - navigate to /Flash-Cardio/client

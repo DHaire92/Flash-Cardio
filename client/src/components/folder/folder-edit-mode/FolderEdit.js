@@ -1,27 +1,23 @@
 import './FolderEdit.scss';
-import { useNavigate } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
-import { updateFolder } from '../../../api/folderAPIs';
+import { useState, useEffect } from 'react';
+import { updateFolder, getFolder } from '../../../api/folderAPIs';
 
-const FolderEdit = ({ folderData, onDelete, handleNavigateFolder }) => {
-    const navigate = useNavigate();
-    const [folderTitle, setFolderTitle] = useState(folderData.name);
-    const updateFolderTimeout = useRef(null);
+const FolderEdit = ({ folderPath, onDelete, handleNavigateFolder }) => {
+    const [folderData, setFolder] = useState({});
 
     useEffect(() => {
-        if (updateFolderTimeout.current) {
-            clearTimeout(updateFolderTimeout.current);
-        }
+        const fetchFolderData = async () => {
+            const folder = await getFolder(folderPath);
+            setFolder(folder);
+        };
 
-        updateFolderTimeout.current = setTimeout(async () => {
-            if (folderData.name !== folderTitle) {
-                folderData.name = folderTitle;
-                await updateFolder(folderData);
-            }
-        }, 0);
+        fetchFolderData();
+    }, [folderPath]);
 
-        return () => clearTimeout(updateFolderTimeout.current);
-    }, [folderTitle]);
+    const editTitle = async (title) => {
+        setFolder({ ...folderData, name: title });
+        await updateFolder(folderData);
+    }
 
     return (
         <div className="folder-edit-container">
@@ -30,8 +26,8 @@ const FolderEdit = ({ folderData, onDelete, handleNavigateFolder }) => {
                     className="folder-edit-name"
                     type="text"
                     placeholder="Add a Title..."
-                    value={folderTitle}
-                    onChange={(e) => setFolderTitle(e.target.value)}
+                    value={folderData.name || ""}
+                    onChange={async (e) => editTitle(e.target.value)}
                 />
                 <div className="folder-edit-utils-container">
                     <button
@@ -45,7 +41,7 @@ const FolderEdit = ({ folderData, onDelete, handleNavigateFolder }) => {
             </div>
             <div className="folder-edit-body">
                 <div className="folder-edit-card-amount">
-                    {folderData.flashcards.length} {folderData.flashcards.length === 1 ? "item" : "items"}
+                    {folderData.flashcards?.length || 0} {folderData.flashcards?.length === 1 ? "item" : "items"}
                 </div>
             </div>
         </div>

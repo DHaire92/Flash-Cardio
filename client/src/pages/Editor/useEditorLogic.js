@@ -4,44 +4,20 @@ import { addFolder, getFolder, updateFolder, deleteFolder, getParentPath } from 
 import { blankFolder } from '../../models/blank_folder_object';
 
 export default function useEditorLogic(navigate) {
-  const [folders, setFolders] = useState([]);
   const [folderData, setFolderData] = useState([]);
   const { '*': folderPath } = useParams();
 
   useEffect(() => {
     const fetchFolderData = async () => {
-      try {
-        const folderData = await getFolder(folderPath);
-        setFolderData(folderData);                         
-
-        const expandedFolders = await Promise.all(
-          (folderData.nestedFolders || []).map(async (folderLink) => {
-            try {
-              return await getFolder(folderLink);
-            } catch (error) {
-              console.error(`Error fetching nested folder at ${folderLink}:`, error);
-              return null;
-            }
-          })
-        );
-        setFolders(expandedFolders.filter((folder) => folder !== null));
-      } catch (error) {
-        console.error("Error fetching folder data:", error);
-      }
+      const folderData = await getFolder(folderPath);
+      setFolderData(folderData);                  
     };
-
-    if (folderPath) {
-      fetchFolderData();
-    }
+    fetchFolderData();
   }, [folderPath]);
 
   const handleAddFolder = async () => {
     const newFolder = await addFolder(`${folderData.path}/subfolders`, blankFolder);
-    setFolders([...folders, newFolder]);
-    setFolderData({
-      ...folderData,
-      nestedFolders: [...folderData.nestedFolders, newFolder.path]
-    });
+    setFolderData({ ...folderData, nestedFolders: [...folderData.nestedFolders, newFolder.path]});
     await saveFolder();
   };
 
@@ -50,27 +26,19 @@ export default function useEditorLogic(navigate) {
     await saveFolder();
   }
 
-  const handleDeleteFolder = async (folderPath, id) => {
-    try {
-      await deleteFolder(folderPath);
-      await saveFolder();
-  
-      const updatedFolders = folders.filter((folder) => folder.path !== folderPath);
-      setFolders(updatedFolders);
-  
-      // Deep clone `folderData` to prevent mutation of the existing object reference
-      const updatedFolderData = {
-        ...folderData,
-        nestedFolders: updatedFolders.map((folder) => folder.path),
-      };
-  
-      setFolderData(updatedFolderData);
-    } catch (error) {
-      console.error("Error deleting folder:", error);
-    }
+  const handleDeleteFolder = async (folderPath) => {
+    await deleteFolder(folderPath);
+
+    const updatedNestedFolders = folderData.nestedFolders.filter((path) => path !== folderPath);
+    const updatedFolderData = {
+      ...folderData,
+      nestedFolders: updatedNestedFolders,
+    };
+
+    setFolderData(updatedFolderData);
+    await updateFolder(updatedFolderData);
   };
   
-
   const handleAddCard = () => {
     const newFlashcard = {
       id: Date.now(),
@@ -78,43 +46,28 @@ export default function useEditorLogic(navigate) {
       back: "",
       cardNumber: folderData.flashcards.length + 1,
     };
-    setFolderData({
-      ...folderData,
-      flashcards: [...folderData.flashcards, newFlashcard]
-    });
+    setFolderData({ ...folderData, flashcards: [...folderData.flashcards, newFlashcard] });
   };
 
   const handleDeleteCard = (id) => {
     const updatedFlashcards = folderData.flashcards.filter((card) => card.id !== id);
-    setFolderData({
-      ...folderData,
-      flashcards: updatedFlashcards
-    });
+    setFolderData({ ...folderData, flashcards: updatedFlashcards });
   };
 
   const updateFlashcardFront = (index, newFront) => {
     const updatedFlashcards = [...folderData.flashcards];
     updatedFlashcards[index].front = newFront;
-    setFolderData({
-      ...folderData,
-      flashcards: updatedFlashcards
-    });
+    setFolderData({ ...folderData, flashcards: updatedFlashcards });
   };
 
   const updateFlashcardBack = (index, newBack) => {
     const updatedFlashcards = [...folderData.flashcards];
     updatedFlashcards[index].back = newBack;
-    setFolderData({
-      ...folderData,
-      flashcards: updatedFlashcards
-    });
+    setFolderData({ ...folderData, flashcards: updatedFlashcards });
   };
 
   const updateTitle = (newTitle) => {
-    setFolderData({
-      ...folderData,
-      name: newTitle
-    });
+    setFolderData({ ...folderData, name: newTitle });
   };
 
   const saveFolder = async () => {
@@ -132,7 +85,6 @@ export default function useEditorLogic(navigate) {
   }
 
   return {
-    folders,
     folderData,
     handleAddFolder,
     handleDeleteFolder,

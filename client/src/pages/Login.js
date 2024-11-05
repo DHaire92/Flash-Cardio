@@ -32,7 +32,7 @@ function Login() {
         <header className="App-header">
           <div className="login-input-header">
             <header className="centered-login"> 
-              <TitleText>Flashcardio</TitleText>
+              <TitleText key={"Flashcardio"}>Flashcardio</TitleText>
             </header>
 
             <input 

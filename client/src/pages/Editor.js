@@ -12,13 +12,12 @@ import TitleText from '../components/title-text/TitleText'
 
 import { BackToHomeButton } from '../components/button/NavigationButtons';
 import useEditorLogic from './Editor/useEditorLogic.js';
+import { getFolder } from '../api/folderAPIs.js';
 
 export default function Editor() {
-
   const navigate = useNavigate();
 
   const {
-    folders,
     folderData,
     handleAddFolder,
     handleDeleteFolder,
@@ -35,10 +34,9 @@ export default function Editor() {
 
   return (
     <div className="App">
-      {console.log(JSON.stringify(folderData.nestedFolders, null, 2))}
       <Header>Question Editor</Header>
       
-      <div className="page-header"><TitleText>Flashcards</TitleText></div>
+      <div className="page-header">Flashcards</div>
 
       <div className="folder-mode-info-header-container">
         <div className="current-directory">
@@ -82,15 +80,13 @@ export default function Editor() {
         </div>
 
         <div className="edit-folder-container">
-        <div className="page-header"><TitleText>Folders</TitleText></div>
+        <div className="page-header">Folders</div>
           <div className="folder-edit-icon-container">
-            {folders.map((folder) => (
+            {(folderData.nestedFolders || []).map((path) => (
               <FolderEdit
-                key={folder.id}
-                folderPath={folder.path}
-                folderData={folder}
+                folderPath={path}  
+                onDelete={() => handleDeleteFolder(path)}
                 handleNavigateFolder={handleNavigateFolder}
-                onDelete={() => handleDeleteFolder(folder.path, folder.id)}
               />
             ))}
           </div>
