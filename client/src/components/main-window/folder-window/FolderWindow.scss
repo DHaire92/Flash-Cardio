@@ -1,17 +1,20 @@
 @import "../../../global-styles/css-variables.scss";
 
-.folder-window {
-    display: flex;
-    flex-direction: column;
-
+.folder-window-container {
     width: 50%;
+    margin: auto;
+}
+
+.folder-window {
     font-family: $primary-font;
+    width: 100%;
 }
 
 .folder-window-header {
     height: 15px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+    border-top: 15px;
 
     background-color: $licorice;
 }

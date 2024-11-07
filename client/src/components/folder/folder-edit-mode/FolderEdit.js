@@ -10,7 +10,6 @@ const FolderEdit = ({ folderPath, onDelete, handleNavigateFolder }) => {
             const folder = await getFolder(folderPath);
             setFolder(folder);
         };
-
         fetchFolderData();
     }, [folderPath]);
 

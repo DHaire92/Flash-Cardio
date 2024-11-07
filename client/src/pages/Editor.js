@@ -8,11 +8,9 @@ import Header from '../components/header/Header';
 import AddCard from '../components/flashcard/add-card/AddCard';
 import Flashcard from '../components/flashcard/flashcard-edit-mode/Flashcard';
 import FolderEdit from '../components/folder/folder-edit-mode/FolderEdit';
-import TitleText from '../components/title-text/TitleText'
+import useEditorLogic from './Editor/useEditorLogic.js';
 
 import { BackToHomeButton } from '../components/button/NavigationButtons';
-import useEditorLogic from './Editor/useEditorLogic.js';
-import { getFolder } from '../api/folderAPIs.js';
 
 export default function Editor() {
   const navigate = useNavigate();
@@ -50,7 +48,7 @@ export default function Editor() {
               type="text"
               className="title-input"
               placeholder="Add a title..."
-              value={folderData.name || ""}
+              value={folderData.name}
               onChange={(e) => updateTitle(e.target.value)}
             />
           </div>
@@ -79,17 +77,15 @@ export default function Editor() {
           <AddCard onClick={handleAddCard}>Card</AddCard>
         </div>
 
-        <div className="edit-folder-container">
-        <div className="page-header">Folders</div>
-          <div className="folder-edit-icon-container">
-            {(folderData.nestedFolders || []).map((path) => (
-              <FolderEdit
-                folderPath={path}  
-                onDelete={() => handleDeleteFolder(path)}
-                handleNavigateFolder={handleNavigateFolder}
-              />
-            ))}
-          </div>
+        <div className="edit-folder-section-container">
+          <div className="page-header">Folders</div>
+          {(folderData.nestedFolders || []).map((path) => (
+            <FolderEdit
+              folderPath={path}  
+              onDelete={() => handleDeleteFolder(path)}
+              handleNavigateFolder={handleNavigateFolder}
+            />
+          ))}
           <AddCard onClick={handleAddFolder}>Folder</AddCard>
         </div>
       </div>

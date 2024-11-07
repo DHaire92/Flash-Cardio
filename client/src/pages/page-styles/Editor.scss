@@ -1,9 +1,8 @@
 @import "../../global-styles/css-variables.scss";
 
 .folder-mode-info-header-container {
-    display: flex;
-    flex-direction: column;
-    margin: 0 50px;
+    margin: auto;
+    width: 95%;
 }
 
 .folder-utils-container {
@@ -21,27 +20,18 @@
 .title-input {
     border: transparent;
     border-bottom: $title-bottom;
-    margin: 12px 0px 12px 0px;
+    margin: 12px 0px;
     
     font-size: large;
     
     background-color: transparent;
-}
 
-.title-input:focus {
-    box-shadow: none;
-    outline: none;
+    &:focus {
+        box-shadow: none;
+        outline: none;
+    }
 }
 
 .current-directory {
     font-family: $primary-font;
 }
-
-.current-directory-link:hover {
-    cursor: pointer;
-}
-
-.folder-edit-icon-container {
-    margin: 0px 50px 10px 50px;
-}
-

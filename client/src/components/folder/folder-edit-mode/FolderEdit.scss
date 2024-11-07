@@ -2,17 +2,18 @@
 
 .folder-edit-container {
     height: 100px;
-
+    margin: 10px auto;
+    
     padding: 15px;
     border-radius: 15px;
-    margin-bottom: 25px;
+    width: 94%;
     
     background-color: $licorice;
     transition: background-color 0.3s ease-in-out;
-}
 
-.folder-edit-container:hover {
-    background-color: $van-dyke;
+    &:hover {
+        background-color: $van-dyke;
+    }
 }
 
 .folder-edit-header {

@@ -1,5 +1,10 @@
 @import "../../../global-styles/css-variables.scss";
 
+.card-container {
+    margin: 10px auto;
+    width: 95%;
+}
+
 .card-body {
     display: flex;
     justify-content: space-between;
@@ -11,7 +16,6 @@
     border-color: $licorice;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    margin: 0px 50px 10px 50px;
 
     background-color: $van-dyke;
 }
@@ -27,7 +31,6 @@
     border-color: $licorice;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    margin: 0 50px;
 
     color: $pure-white;
     font-family: $primary-font;
