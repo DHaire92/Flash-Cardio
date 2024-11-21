@@ -1,8 +1,8 @@
 # FlashCardio
 
-## Progress Report 
-# Increment 2 
-# Group #31
+# Progress Report 
+### Increment 2 
+### Group #31
 
 Team Members
 Aiden Livingston	atl21g	lvngstn
@@ -92,9 +92,9 @@ Paste here the link to your video.
 
 
 
-## Software Implementation and Testing Document
-# Increment 2
-# Group 31
+# Software Implementation and Testing Document
+### Increment 2
+### Group 31
 
 Authors:
 Aiden Livingston
@@ -132,9 +132,9 @@ Static Analysis: Used static analysis tool ESLint to identify coding errors, enf
 Walkthroughs: Conducted team walkthroughs of the project architecture, discussing the rationale behind key decisions like folder-path-based routing and Firestore query structure. Helped ensure alignment on design decisions and identified opportunities for optimization, such as caching frequently accessed folders.
 Inspection of Requirements and Design Documents: Reviewed the Requirements Document (RD) to ensure the application aligns with the specified non-functional requirements. Checked that the current implementation meets outlined requirements and flagged areas for future improvement.
 
-## Software Requirements and Design Document
-# Increment 2
-# Group 31
+# Software Requirements and Design Document
+### Increment 2
+### Group 31
 
 Authors:
 Aiden Livingston
