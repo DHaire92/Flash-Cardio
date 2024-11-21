@@ -72,11 +72,25 @@
   font-weight: bold;
 }
 
-.logo_image {
-  width: 300px;
-  height: 300px;
-  margin: 20px;
+.logo-link {
+  position: absolute;
+  top: 20px;    /* Adjust to move logo down a little */
+  left: 20px;   /* Adjust to move logo to the left */
+  display: block;
 }
+
+.logo-image {
+  width: 50px;    /* Adjust to your desired logo size */
+  height: auto;
+}
+
+.button-row{
+  display: flex;
+  justify-content: center;
+  gap: 20px; /*how to make them completely centered within the email button?*/
+  margin-top: -100px;
+}
+
 
 input[type="email"].basic-input,
 input[type="password"].basic-input,

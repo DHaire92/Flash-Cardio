@@ -33,6 +33,9 @@ function Login() {
       <div className="App">
         <Header>Login</Header>
         <header className="App-header">
+          <Link to='/' className="logo-link">
+            <img src ={logo} alt="Logo" className="logo-image"/>
+          </Link>
           <div className="login-input-header">
             <header className="centered-login"> FlashCardio </header>
             <input 
