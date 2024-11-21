@@ -1,8 +1,8 @@
 .site {
     width: 100vw; 
     height: 100vh;
-
     background-color: #faf0dc;
+    font-family: 'soopa', 'amonite', 'nulshock', 'AbstractGroovy', 'Supercharge';
 }
 
 .folder-window-container {
@@ -16,3 +16,5 @@
     
     margin: 0 5%;
 }
+
+

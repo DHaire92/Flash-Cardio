@@ -74,7 +74,6 @@ export default function Editor() {
       <Header>Question Editor</Header>
 
       <p>{JSON.stringify(folderData, null, 2)}</p>
-      
       <div className="folder-mode-info-header-container">
         <div className="page-header">Folder Mode</div>
 
