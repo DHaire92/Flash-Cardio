@@ -7,7 +7,7 @@ import SignIn from './Login.js';
 import SignUp from './CreateAccount.js'; 
 import Home from './Home.js'; 
 import Editor from './Editor.js';
-import Viewer from './Editor.js';
+import Viewer from './Viewer.js';
 import '../global-styles/styles.scss'
 
 import { QuestionProvider } from '../components/questions/QuestionContext.js'; 

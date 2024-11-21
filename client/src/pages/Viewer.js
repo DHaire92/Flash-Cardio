@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import '../global-styles/styles.css';
-import './page-styles/Viewer.css';
+import '../global-styles/styles.scss';
+import './page-styles/Viewer.scss';
 import { BackToHomeButton } from "../components/button/NavigationButtons";
 import Header from "../components/header/Header";
 import FlashcardView from "../components/flashcard/flashcard-view-mode/Flashcard-view";
-import { addFolder, updateFolder, deleteFolder } from "../components/folder-logic/firestoreUtils";
+import { addFolder, updateFolder, deleteFolder } from "../api/folderAPIs";
 
 export default function Viewer() {
   const navigate = useNavigate();
