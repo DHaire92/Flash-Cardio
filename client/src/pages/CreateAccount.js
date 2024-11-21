@@ -3,6 +3,8 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { BackToLoginButton } from '../components/button/NavigationButtons';
 import Header from "../components/header/Header"
 import Button from '../components/button/Button';
+import {Link} from 'react-router-dom';
+import logo from '../images/FCLogo1.png';
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -29,7 +31,11 @@ function SignUp() {
   return (
     <div className="App">
       <Header>Create Account</Header>
+      <Link to='/' className="logo-link">
+            <img src ={logo} alt="Logo" className="logo-image"/>
+      </Link>
       <div className="create-account-input-header">
+        <header className="centered-login"> Create Account </header>
         <input 
           className='basic-input'
           type="email" 
@@ -46,7 +52,7 @@ function SignUp() {
         />
       </div>
 
-      <div>
+      <div className = "button-row">
         <button className="main-button" onClick={handleSignUp}>Sign Up</button>
         {error && <p style={{ color: 'red' }}>{error}</p>}
         {message && <p style={{ color: 'green' }}>{message}</p>}

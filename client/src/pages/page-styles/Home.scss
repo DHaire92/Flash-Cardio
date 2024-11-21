@@ -11,3 +11,24 @@
     width: 50.9%;
     margin: auto;
 }
+
+.site {
+    width: 100vw; 
+    height: 100vh;
+    background-color: #faf0dc;
+    font-family: 'soopa', 'amonite', 'nulshock', 'AbstractGroovy', 'Supercharge';
+}
+
+.folder-window-container {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons-header-container {
+    display: flex;
+    justify-content: space-around; 
+    
+    margin: 0 5%;
+}
+
+
