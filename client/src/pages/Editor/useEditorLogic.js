@@ -2,11 +2,14 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { addFolder, getFolder, updateFolder, deleteFolder, getParentPath } from '../../api/folderAPIs';
 import { blankFolder } from '../../models/blank_folder_object';
+import { getAuth } from "firebase/auth";
 
 export default function useEditorLogic(navigate) {
   const [folders, setFolders] = useState([]);
   const [folderData, setFolderData] = useState([]);
   const { '*': folderPath } = useParams();
+  const auth = getAuth();
+  const user = auth.currentUser;
 
   useEffect(() => {
     const fetchFolderData = async () => {
@@ -123,12 +126,13 @@ export default function useEditorLogic(navigate) {
 
   const deleteCurrentFolder = async () => {
     await deleteFolder(folderData.path);
-    navigate('/Home');
+    const parentPath = await getParentPath(folderPath, 2);
+    (parentPath) ? navigate(`/Editor/${parentPath}`) : navigate(`/Home/${user.uid}`);
   };
 
   const NavigateUpOneFolder = async (folderPath) => {
     const parentPath = await getParentPath(folderPath, 2);
-    (parentPath) ? navigate(`/Editor/${parentPath}`) : navigate('/Home');
+    (parentPath) ? navigate(`/Editor/${parentPath}`) : navigate(`/Home/${user.uid}`);
   }
 
   return {

@@ -19,7 +19,7 @@ function Login() {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log("Signed in successfully", user);
-        navigate('Home');
+        navigate(`/Home/${user.uid}`);
       })
       .catch((error) => {
         setError(error.message);

@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import Button from './Button'
+import { getAuth } from 'firebase/auth';
 
 //Navigation Buttons
 export function CreateAccountNavButton() {
@@ -27,7 +28,17 @@ export function CreateAccountNavButton() {
   }
 
   export function BackToHomeButton() {
-    return  (
-      <Button text='Back' navigateTo='/Home' />
-    );
-  }
+    const navigate = useNavigate();
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    const handleBack = () => {
+        if (user) {
+            navigate(`/Home/${user.uid}`);
+        } else {
+            console.error("No authenticated user found.");
+        }
+    };
+
+    return <Button text="Back" onClick={handleBack} />;
+}

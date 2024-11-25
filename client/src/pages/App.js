@@ -34,7 +34,7 @@ function App() {
         <Route path='*' element={<SignIn />} />
         <Route exact path="/" element={<SignIn />} />
         <Route exact path="/SignUp" element={<SignUp />} />
-        <Route exact path="/Home" element={<Home />} />
+        <Route exact path="/Home/:userId" element={<Home />} />
         <Route path="/Editor/*" element={<Editor />} />
       </Routes>
     </QuestionProvider>
