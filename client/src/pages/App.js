@@ -37,7 +37,7 @@ function App() {
         <Route exact path="/SignUp" element={<SignUp />} />
         <Route exact path="/Home" element={<Home />} />
         <Route path="/Editor/*" element={<Editor />} />
-        <Route path="/Viewer" element={<Viewer />} />
+        <Route path="/Viewer/*" element={<Viewer />} />
       </Routes>
     </QuestionProvider>
   );

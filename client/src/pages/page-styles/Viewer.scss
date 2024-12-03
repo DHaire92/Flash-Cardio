@@ -1,4 +1,31 @@
 @import "../../global-styles/css-variables.scss";
 
 
+.folder-mode-info-header-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 50px;
+}
+
+.folder-utils-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.folder-mode-button-container {
+    display: flex;
+    justify-content: right;
+    width: 50%;
+    height: 50%;
+}
+
+.current-directory {
+    font-family: $primary-font;
+}
+
+.current-directory-link:hover {
+    cursor: pointer;
+}
+
+
 

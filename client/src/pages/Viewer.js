@@ -1,16 +1,36 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
 import { useLocation, useNavigate } from "react-router-dom";
 import '../global-styles/styles.scss';
 import './page-styles/Viewer.scss';
+
 import { BackToHomeButton } from "../components/button/NavigationButtons";
 import Header from "../components/header/Header";
 import FlashcardView from "../components/flashcard/flashcard-view-mode/Flashcard-view";
-import { addFolder, updateFolder, deleteFolder } from "../api/folderAPIs";
+
+import { getFolder } from "../api/folderAPIs";
 
 export default function Viewer() {
+  const { '*': folderPath } = useParams();  // Getting folder path from the URL
+  const [folderData, setFolderData] = useState(null); // Folder data state
+  useEffect(() => {
+    const fetchFolderData = async () => {
+      try {
+        const folderData = await getFolder(folderPath); // Fetching data using folderPath
+        setFolderData(folderData); // Setting fetched data to state
+      } catch (error) {
+        console.error("Error fetching folder data:", error);
+      }
+    };
+
+    if (folderPath) {
+      fetchFolderData();  // Only fetch if folderPath exists
+    }
+  }, [folderPath]);
+
   const navigate = useNavigate();
   const location = useLocation();
-  let folderData = location.state?.folderEditData;
+  //let folderData = location.state?.folderEditData;
 
   const [flashcards, setFlashcards] = useState([]);
   const [title, setTitle] = useState('');
@@ -24,19 +44,17 @@ export default function Viewer() {
     }
   }, [folderData]);
 
-
   return (
     <div className="App">
-      <Header>Question Editor</Header>
+      <Header>Study Flashcards</Header>
 
       <p>{JSON.stringify(folderData, null, 2)}</p>
       
       <div className="folder-mode-info-header-container">
         <div className="page-header">Viewer Mode</div>
-
         <div className="current-directory">
           <b>Directory: </b>
-          <u className="current-directory-link">Study List 1</u>
+          <u className="current-directory-link">Study Set</u>
         </div>
       </div>
 
@@ -48,6 +66,7 @@ export default function Viewer() {
             cardContents={flashcard}
           />
         ))}
+        <BackToHomeButton />
       </div>
     </div>
   );
