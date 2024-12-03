@@ -46,12 +46,12 @@ export default function Viewer() {
 
   return (
     <div className="App">
-      <Header>Study Flashcards</Header>
+      <Header>Viewer</Header>
 
       <p>{JSON.stringify(folderData, null, 2)}</p>
       
       <div className="folder-mode-info-header-container">
-        <div className="page-header">Viewer Mode</div>
+        <div className="page-header">Study Mode</div>
         <div className="current-directory">
           <b>Directory: </b>
           <u className="current-directory-link">Study Set</u>
