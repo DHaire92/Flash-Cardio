@@ -6,25 +6,25 @@ import './page-styles/Viewer.scss';
 
 import { BackToHomeButton } from "../components/button/NavigationButtons";
 import Header from "../components/header/Header";
-import FlashcardView from "../components/flashcard/flashcard-view-mode/Flashcard-view";
+import FlashcardStudy from "../components/flashcard/flashcard-study-mode/Flashcard-study";
 
 import { getFolder } from "../api/folderAPIs";
 
 export default function Viewer() {
-  const { '*': folderPath } = useParams();  // Getting folder path from the URL
-  const [folderData, setFolderData] = useState(null); // Folder data state
+  const { '*': folderPath } = useParams();  
+  const [folderData, setFolderData] = useState(null); 
   useEffect(() => {
     const fetchFolderData = async () => {
       try {
-        const folderData = await getFolder(folderPath); // Fetching data using folderPath
-        setFolderData(folderData); // Setting fetched data to state
+        const folderData = await getFolder(folderPath); 
+        setFolderData(folderData); 
       } catch (error) {
         console.error("Error fetching folder data:", error);
       }
     };
 
     if (folderPath) {
-      fetchFolderData();  // Only fetch if folderPath exists
+      fetchFolderData();  
     }
   }, [folderPath]);
 
@@ -46,7 +46,7 @@ export default function Viewer() {
 
   return (
     <div className="App">
-      <Header>Viewer</Header>
+      <Header>Viewer Mode</Header>
 
       <p>{JSON.stringify(folderData, null, 2)}</p>
       
@@ -54,20 +54,20 @@ export default function Viewer() {
         <div className="page-header">Study Mode</div>
         <div className="current-directory">
           <b>Directory: </b>
-          <u className="current-directory-link">Study Set</u>
+          <u className="current-directory-link">{title}</u>
         </div>
       </div>
 
-      <div className="edit-flashcard-container">
-        {flashcards.map((flashcard) => (
-          <FlashcardView
-            key={flashcard.id} // Use the unique id as the key
-            cardNumber={flashcard.cardNumber}
+      <div className="flashcard-container">
+        {flashcards.map((flashcard, index) => (
+          <FlashcardStudy
+            key={flashcard.id || index} // Use the unique id as the key
+            cardNumber={index + 1}
             cardContents={flashcard}
           />
         ))}
-        <BackToHomeButton />
       </div>
+      <BackToHomeButton />
     </div>
   );
 }

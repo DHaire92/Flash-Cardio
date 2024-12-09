@@ -1,31 +1,29 @@
 @import "../../global-styles/css-variables.scss";
 
+.flashcard-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
 
 .folder-mode-info-header-container {
-    display: flex;
-    flex-direction: column;
-    margin: 0 50px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 50px;
 }
 
-.folder-utils-container {
-    display: flex;
-    justify-content: space-between;
-}
-
-.folder-mode-button-container {
-    display: flex;
-    justify-content: right;
-    width: 50%;
-    height: 50%;
+.page-header {
+  font-family: $primary-font;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
 .current-directory {
-    font-family: $primary-font;
+  font-family: $primary-font;
 }
 
 .current-directory-link:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
-
-
-

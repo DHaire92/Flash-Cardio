@@ -1,0 +1,52 @@
+@import "../../../global-styles/css-variables.scss";
+
+.card-container {
+    width: 300px;
+    height: 200px;
+    perspective: 1000px; /* Enables 3D space for flipping */
+    cursor: pointer;
+  }
+  
+  .card-body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s; /* Smooth flip transition */
+  
+    /* When flipped, rotate 180 degrees */
+    &.flipped {
+      transform: rotateY(180deg);
+    }
+  }
+  
+  .card-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden; /* Hides the back when not visible */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $primary-font;
+    font-size: 1.2em;
+    border: 1px solid $licorice;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+  
+    /* Styling for the front and back */
+    &.card-front {
+      background-color: $van-dyke;
+      color: $pure-white;
+    }
+  
+    &.card-back {
+      background-color: $licorice;
+      color: $pure-white;
+      transform: rotateY(180deg); /* Rotates the back face */
+    }
+  }
+  
