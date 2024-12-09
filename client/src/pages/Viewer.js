@@ -6,7 +6,8 @@ import './page-styles/Viewer.scss';
 
 import { BackToHomeButton } from "../components/button/NavigationButtons";
 import Header from "../components/header/Header";
-import FlashcardStudy from "../components/flashcard/flashcard-study-mode/Flashcard-study";
+import FlashcardStudy from "../components/flashcard-study-mode/Flashcard-study";
+
 
 import { getFolder } from "../api/folderAPIs";
 
@@ -55,10 +56,11 @@ export default function Viewer() {
         <div className="current-directory">
           <b>Directory: </b>
           <u className="current-directory-link">{title}</u>
+          <BackToHomeButton />
         </div>
       </div>
 
-      <div className="flashcard-container">
+      <div className="study-card-container">
         {flashcards.map((flashcard, index) => (
           <FlashcardStudy
             key={flashcard.id || index} // Use the unique id as the key
@@ -67,7 +69,6 @@ export default function Viewer() {
           />
         ))}
       </div>
-      <BackToHomeButton />
     </div>
   );
 }
