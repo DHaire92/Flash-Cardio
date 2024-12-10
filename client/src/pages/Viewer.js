@@ -14,6 +14,14 @@ import { getFolder } from "../api/folderAPIs";
 export default function Viewer() {
   const { '*': folderPath } = useParams();  
   const [folderData, setFolderData] = useState(null); 
+  const [flashcards, setFlashcards] = useState([]);
+  const [title, setTitle] = useState('');
+
+  const [currentFlashcardIndex, setCurrentFlashcardIndex] = useState(0);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
   useEffect(() => {
     const fetchFolderData = async () => {
       try {
@@ -29,12 +37,18 @@ export default function Viewer() {
     }
   }, [folderPath]);
 
-  const navigate = useNavigate();
-  const location = useLocation();
-  //let folderData = location.state?.folderEditData;
+  // Navigation functions
+  const goToNextFlashcard = () => {
+    if (currentFlashcardIndex < flashcards.length - 1) {
+      setCurrentFlashcardIndex(currentFlashcardIndex + 1);
+    }
+  };
 
-  const [flashcards, setFlashcards] = useState([]);
-  const [title, setTitle] = useState('');
+  const goToPreviousFlashcard = () => {
+    if (currentFlashcardIndex > 0) {
+      setCurrentFlashcardIndex(currentFlashcardIndex - 1);
+    }
+  };
 
   useEffect(() => {
     if (folderData?.name) {
@@ -61,13 +75,32 @@ export default function Viewer() {
       </div>
 
       <div className="study-card-container">
-        {flashcards.map((flashcard, index) => (
+         {/* Display the current flashcard */}
+         {flashcards.length > 0 && (
           <FlashcardStudy
-            key={flashcard.id || index} // Use the unique id as the key
-            cardNumber={index + 1}
-            cardContents={flashcard}
+            key={flashcards[currentFlashcardIndex].id || currentFlashcardIndex} // Use the unique id as the key
+            cardNumber={currentFlashcardIndex + 1}
+            cardContents={flashcards[currentFlashcardIndex]}
           />
-        ))}
+        )}
+      </div>
+
+      <div className="flashcard-navigation">
+        {/* Add buttons to navigate between flashcards */}
+        <button 
+          className="nav-button" 
+          onClick={goToPreviousFlashcard} 
+          disabled={currentFlashcardIndex === 0}
+        >
+          Previous
+        </button>
+        <button 
+          className="nav-button" 
+          onClick={goToNextFlashcard} 
+          disabled={currentFlashcardIndex === flashcards.length - 1}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
