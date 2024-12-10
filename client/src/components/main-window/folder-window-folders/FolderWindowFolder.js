@@ -2,6 +2,8 @@ import './FolderWindowFolders.scss';
 import FolderWindowFiles from '../folder-window-flashcards/FolderWindowFiles';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { HiOutlineEye } from "react-icons/hi";
+
 
 function FolderWindowFolder({ folderData }) {
     const [isVisible, setIsVisible] = useState(true);
@@ -33,7 +35,7 @@ function FolderWindowFolder({ folderData }) {
                             navigate(`/Viewer/${folderData.path}`);
                             console.log("test");
                         }}
-                        >+</button>
+                        ><HiOutlineEye /></button>
                     
                 </div>
             </div>

@@ -3,10 +3,12 @@ import { useParams } from 'react-router-dom';
 import { useLocation, useNavigate } from "react-router-dom";
 import '../global-styles/styles.scss';
 import './page-styles/Viewer.scss';
+import "../components/flashcard-study-mode/flashcard-study.scss";
 
 import { BackToHomeButton } from "../components/button/NavigationButtons";
 import Header from "../components/header/Header";
 import FlashcardStudy from "../components/flashcard-study-mode/Flashcard-study";
+
 
 
 import { getFolder } from "../api/folderAPIs";
@@ -37,7 +39,6 @@ export default function Viewer() {
     }
   }, [folderPath]);
 
-  // Navigation functions
   const goToNextFlashcard = () => {
     if (currentFlashcardIndex < flashcards.length - 1) {
       setCurrentFlashcardIndex(currentFlashcardIndex + 1);
@@ -62,8 +63,6 @@ export default function Viewer() {
   return (
     <div className="App">
       <Header>Viewer Mode</Header>
-
-      <p>{JSON.stringify(folderData, null, 2)}</p>
       
       <div className="folder-mode-info-header-container">
         <div className="page-header">Study Mode</div>
@@ -75,7 +74,6 @@ export default function Viewer() {
       </div>
 
       <div className="study-card-container">
-         {/* Display the current flashcard */}
          {flashcards.length > 0 && (
           <FlashcardStudy
             key={flashcards[currentFlashcardIndex].id || currentFlashcardIndex} // Use the unique id as the key
@@ -86,16 +84,15 @@ export default function Viewer() {
       </div>
 
       <div className="flashcard-navigation">
-        {/* Add buttons to navigate between flashcards */}
         <button 
-          className="nav-button" 
+          className="main-button" 
           onClick={goToPreviousFlashcard} 
           disabled={currentFlashcardIndex === 0}
         >
           Previous
         </button>
         <button 
-          className="nav-button" 
+          className="main-button" 
           onClick={goToNextFlashcard} 
           disabled={currentFlashcardIndex === flashcards.length - 1}
         >
