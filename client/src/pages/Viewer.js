@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { useLocation, useNavigate } from "react-router-dom";
 import '../global-styles/styles.scss';
 import './page-styles/Viewer.scss';
-import "../components/flashcard-study-mode/flashcard-study.scss";
 
 import { BackToHomeButton } from "../components/button/NavigationButtons";
 import Header from "../components/header/Header";
@@ -85,14 +84,14 @@ export default function Viewer() {
 
       <div className="flashcard-navigation">
         <button 
-          className="main-button" 
+          className="nav-button" 
           onClick={goToPreviousFlashcard} 
           disabled={currentFlashcardIndex === 0}
         >
           Previous
         </button>
         <button 
-          className="main-button" 
+          className="nav-button" 
           onClick={goToNextFlashcard} 
           disabled={currentFlashcardIndex === flashcards.length - 1}
         >
