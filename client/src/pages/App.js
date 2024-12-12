@@ -7,6 +7,7 @@ import SignIn from './Login.js';
 import SignUp from './CreateAccount.js'; 
 import Home from './Home.js'; 
 import Editor from './Editor.js';
+import Viewer from './Viewer.js';
 import '../global-styles/styles.scss'
 
 import { QuestionProvider } from '../components/questions/QuestionContext.js'; 
@@ -36,6 +37,7 @@ function App() {
         <Route exact path="/SignUp" element={<SignUp />} />
         <Route exact path="/Home/:userId" element={<Home />} />
         <Route path="/Editor/*" element={<Editor />} />
+        <Route path="/Viewer" element={<Viewer />} />
       </Routes>
     </QuestionProvider>
   );

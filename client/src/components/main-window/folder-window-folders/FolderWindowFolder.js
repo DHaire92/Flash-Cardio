@@ -27,12 +27,14 @@ function FolderWindowFolder({ folderData }) {
                         }}
                         >...</button>
                     <button 
-                        className="folder-add-util"
+                        className="folder-view-util"
                         onClick={(e) => {
                             e.stopPropagation();
+                            navigate(`/Viewer/${folderData.path}`);
                             console.log("test");
                         }}
                         >+</button>
+                    
                 </div>
             </div>
 

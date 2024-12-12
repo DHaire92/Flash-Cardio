@@ -6,7 +6,7 @@
     - do npm start
 2. Start the server:
     - navigate to /Flash-Cardio/server
-    - do npm run dev-start
+    - do npm run start
 
 ## Progress Report
 

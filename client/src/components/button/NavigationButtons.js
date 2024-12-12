@@ -21,6 +21,17 @@ export function CreateAccountNavButton() {
     );
   }
 
+  export function ViewerNavButton() {
+    const navigate = useNavigate();
+    const handleNavigation = () => {
+      navigate('/Viewer');
+    };
+
+    return (
+      <Button text="Viewer" onClick={handleNavigation} />
+    )
+  }
+
   export function BackToLoginButton() {
     return  (
       <Button text='Back' navigateTo='/' />
