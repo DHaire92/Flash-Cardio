@@ -1,6 +1,18 @@
 # FlashCardio
 
+<<<<<<< HEAD
+## HOW TO START
+1. Start the client:
+    - navigate to /Flash-Cardio/client
+    - do npm start
+2. Start the server:
+    - navigate to /Flash-Cardio/server
+    - do npm run start
+
+## Progress Report
+=======
 # Progress Report 
+>>>>>>> 1224fe0d4d3cc9a578549635533f7ae8844b3e2f
 
 ![Progress Report Part 1](https://github.com/user-attachments/assets/f488bfc9-6f24-4422-90b8-be6f1a3cb458)
 ![Progress Report Part 2](https://github.com/user-attachments/assets/18938487-8514-46c5-9cec-f6378b5bed20)

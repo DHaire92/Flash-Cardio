@@ -23,16 +23,18 @@ function FolderWindowFolder({ folderData }) {
                         className='folder-edit-util'
                         onClick={(e) => {
                             e.stopPropagation();
-                            navigate('/Editor', { state: { folderEditData: folderData } });
+                            navigate(`/Editor/${folderData.path}`);
                         }}
                         >...</button>
                     <button 
-                        className="folder-add-util"
+                        className="folder-view-util"
                         onClick={(e) => {
                             e.stopPropagation();
+                            navigate(`/Viewer/${folderData.path}`);
                             console.log("test");
                         }}
                         >+</button>
+                    
                 </div>
             </div>
 

@@ -1,16 +1,20 @@
-@import "./css-variables.scss";
+@import "../global-styles/css-variables.scss";
 
+@font-face {
+  font-family: 'soopa';
+  src: url('./fonts/soopafre.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+}
 .page-header {
-  display: flex;
-  justify-content: start;
-  width: 50%;
-  margin-top: 25px;
-  padding: 0;
+  padding-top: 15px;
+  margin: 0 50px;
 
-  color: $licorice;
-  font-family: $primary-font;
+  color: #281e1e;
+  font-family: $header-font;
   font-size: 50px;
   font-weight: bold;
+  text-align: left;
 }
 
 .main-button {
@@ -21,27 +25,44 @@
 
   font-family: $primary-font;
   font-weight: bold;
-  color: $pure-white;
+  color: white;
 
   background-color: $licorice;
-
-  transition: background-color 0.3s ease-in-out;
+  transition-duration: 0.3s;
 }
 
 .main-button:hover {
-  background-color: $van-dyke;
+  background-color: #423232;
 }
 
+
 .main_container {
-  display: flex;
+    display: flex;
+    height: 100vh;
+}
+
+.App {
   height: 100vh;
+  background-color: $papaya-whip;
+}
+
+.login-input-header{
+  font-size: 100px;
+  font-family: $header-font;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;    
+  flex-direction: column; 
+  color: $licorice;
+  margin: 100px;
 }
 
 .question-text {
-  margin: 10px 0;    /* Add some margin for spacing */
+  margin: 10px 0; 
 
-  color: black;      /* Set the text color */
-  font-size: 18px;   /* Set the font size */
+  color: black;  
+  font-size: 18px;
 }
 
 .error-message {
@@ -66,7 +87,7 @@ input[type="text"].basic-input {
   margin-right: 10px;
   
   box-sizing: border-box;
-  border: 2px solid $pure-white;
+  border: 2px solid #ccc;
   border-radius: 4px;
 
   font-size: 16px;
