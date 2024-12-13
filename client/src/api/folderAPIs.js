@@ -22,6 +22,16 @@ export const getFolder = async (folderPath) => {
   }
 };
 
+export const getCollection = async (path) => {
+  try {
+    const response = await axios.get(`${apiUrl}/getCollection/${encodeURIComponent(path)}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error retrieving collection!", error);
+    throw error;
+  }
+};
+
 export const updateFolder = async (updatedData) => {
   try {
     const response = await axios.put(`${apiUrl}/updateFolder`, { updatedData });

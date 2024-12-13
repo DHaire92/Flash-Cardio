@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './FolderWindow.scss';
 import FolderWindowFolder from '../folder-window-folders/FolderWindowFolder';
-import { fetchFoldersRecursively } from '../../../api/folderAPIs';
+import { fetchFoldersRecursively, getCollection } from '../../../api/folderAPIs';
 
 function FolderWindow() {
     const [folderStructure, setFolderStructure] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
-            const folders = await fetchFoldersRecursively('flashcard-folders');
+            // const folders = await fetchFoldersRecursively('flashcard-folders');
+            const folders = await getCollection('flashcard-folders');
             setFolderStructure(folders);
         };
         

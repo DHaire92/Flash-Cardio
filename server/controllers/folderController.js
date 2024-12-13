@@ -62,6 +62,29 @@ exports.deleteFolder = async (req, res) => {
   }
 };
 
+exports.getCollection = async (req, res) => {
+  const { path } = req.params;
+
+  if (!path) {
+    return res.status(400).json({ error: "Path parameter is required" });
+  }
+
+  try {
+    const folderCollectionRef = collection(db, path);
+    const snapshot = await getDocs(folderCollectionRef);
+
+    const collectionsData = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+
+    res.json(collectionsData)
+  } catch (error) {
+    console.error("Error retrieving collection:", error);
+    res.status(500).json({ error: "Error retrieving collection" });
+  }
+};
+
 exports.fetchFoldersRecursively = async (req, res) => {
   const path = 'flashcard-folders';
   
