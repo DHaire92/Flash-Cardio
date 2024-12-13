@@ -1,6 +1,5 @@
 # FlashCardio
 
-<<<<<<< HEAD
 ## HOW TO START
 1. Start the client:
     - navigate to /Flash-Cardio/client
@@ -9,35 +8,19 @@
     - navigate to /Flash-Cardio/server
     - do npm run start
 
-## Progress Report
-=======
 # Progress Report 
->>>>>>> 1224fe0d4d3cc9a578549635533f7ae8844b3e2f
 
-![Progress Report Part 1](https://github.com/user-attachments/assets/f488bfc9-6f24-4422-90b8-be6f1a3cb458)
-![Progress Report Part 2](https://github.com/user-attachments/assets/18938487-8514-46c5-9cec-f6378b5bed20)
-![Progress Report Part 3](https://github.com/user-attachments/assets/ca50f415-3b08-46b5-8a92-74b561919bd3)
-![Progress Report Part 4](https://github.com/user-attachments/assets/4c5f2b4b-23cd-4514-b3a4-a849ebdbfe47)
-![Progress Report Part 5](https://github.com/user-attachments/assets/1819f1fb-fe0e-4a3b-9976-d0955026532c)
+[Progress Report Increment 3.pdf](https://github.com/user-attachments/files/18122658/Progress.Report.Increment.3.pdf)
 
 
 # Software Implementation and Testing Document
 
-![IT Part 1](https://github.com/user-attachments/assets/47cea7e5-fbfe-47d1-bee3-ba553507f9ad)
-![It Part 2](https://github.com/user-attachments/assets/af5fa577-5f69-44a1-8919-3b3986c8c64d)
-![IT Part 3](https://github.com/user-attachments/assets/63334e8f-86d6-4253-b151-941e93321b4b)
+[IT Increment 3.pdf](https://github.com/user-attachments/files/18122661/IT.Increment.3.pdf)
 
 
 # Software Requirements and Design Document
 
-![RD Part 1](https://github.com/user-attachments/assets/1017746d-e5e3-4019-9829-56f9d7a6efac)
-![RD Part 2](https://github.com/user-attachments/assets/9165520b-5069-4ff8-98d3-30e2f873a51f)
-![Rd Part 3](https://github.com/user-attachments/assets/722005a6-3af4-4077-bc4d-cbfcaa0fce5f)
-![RD Part 4](https://github.com/user-attachments/assets/f205c771-d56a-43b5-b948-1769872bbabf)
-![RD Part 5](https://github.com/user-attachments/assets/f7c7604e-d76c-476a-b86b-82b6e03ae810)
-![RD Part 6](https://github.com/user-attachments/assets/3760bb8f-b88b-4db6-9761-6459d27cfb83)
-![RD Part 7](https://github.com/user-attachments/assets/59b56642-162f-49d5-9ea3-46555531114a)
-![RD Part 8](https://github.com/user-attachments/assets/c8f87e5a-d1d3-469e-bb4d-95e01361471a)
+[RD Increment 3.pdf](https://github.com/user-attachments/files/18122665/RD.Increment.3.pdf)
 
 
 
